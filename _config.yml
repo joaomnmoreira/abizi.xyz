@@ -1,7 +1,13 @@
 title: "abizi.xyz"
 remote_theme: pmarsceill/just-the-docs
-#color_scheme: "dark"
+
+# Theme settings
+# Color scheme currently only supports "dark" or nil (default)
+color_scheme: nil
+
 search_enabled: false
 
-port: 1313
-host: 0.0.0.0
+# Aux links for the upper right navigation
+aux_links:
+  "View on GitHub":
+    - "//github.com/taruma/hidrokit-nb"
