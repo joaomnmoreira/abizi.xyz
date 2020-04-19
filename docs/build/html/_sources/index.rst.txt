@@ -10,7 +10,11 @@ Documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   contents/it/flutter.rst
+   contents/it/hugo.rst
+   contents/it/strapi.rst
+   contents/it/sphinx.rst
+   contents/it/vagrant.rst
 
 Indices and tables
 ==================
