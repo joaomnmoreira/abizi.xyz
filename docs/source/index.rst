@@ -3,18 +3,25 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Documentation!
-======================================
+Information Technology
+======================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    contents/it/flutter.rst
    contents/it/hugo.rst
    contents/it/strapi.rst
    contents/it/sphinx.rst
    contents/it/vagrant.rst
+
+Health & Exercise
+======================
+
+.. toctree::
+   :maxdepth: 2
+
+   contents/he/hiit.rst
 
 Indices and tables
 ==================
