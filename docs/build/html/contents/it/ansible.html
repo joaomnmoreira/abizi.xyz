@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ansible &#8212; Geek Stuff 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Flutter" href="flutter.html" />
+    <link rel="prev" title="Information Technology" href="../../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ansible">
+<h1>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="awx">
+<h2>AWX<a class="headerlink" href="#awx" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="enable-windows-host">
+<h3>Enable Windows Host<a class="headerlink" href="#enable-windows-host" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html">Windows Setup</a></p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html">Winrm</a></p></li>
+</ul>
+<p>To enable a windows host in order to be connected by ansible, run the following in PowerShell:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$url</span> <span class="p">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1&quot;</span>
+<span class="nv">$file</span> <span class="p">=</span> <span class="s2">&quot;$env:temp\ConfigureRemotingForAnsible.ps1&quot;</span>
+<span class="p">(</span><span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadFile</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$file</span><span class="p">)</span>
+<span class="n">powershell</span><span class="p">.</span><span class="n">exe</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="o">-File</span> <span class="nv">$file</span> <span class="n">-Verbose</span> <span class="n">-EnableCredSSP</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="awx-configuration">
+<h3>AWX Configuration<a class="headerlink" href="#awx-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Configure ansible vars at HOST or GROUP level</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">ansible_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;administrator user @ windows host&gt;</span>
+<span class="nt">ansible_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;administrator password @ windows host&gt;</span>
+<span class="nt">ansible_connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">winrm</span>
+<span class="nt">ansible_winrm_transport</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">credssp</span>
+<span class="nt">ansible_winrm_server_cert_validation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ignore</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="helpful-commands">
+<h3>Helpful Commands<a class="headerlink" href="#helpful-commands" title="Permalink to this headline">¶</a></h3>
+<p>Enumerate WinRM Listener</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">winrm</span> <span class="n">enumerate</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Listener</span>
+</pre></div>
+</div>
+<p>Current service configuration options</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">winrm</span> <span class="n">get</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Service</span>
+<span class="n">winrm</span> <span class="n">get</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Winrs</span>
+</pre></div>
+</div>
+<p>Enable CREDSSP</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Enable-WSManCredSSP</span> <span class="n">-Role</span> <span class="n">Server</span> <span class="n">-Force</span>
+<span class="nb">Set-Item</span> <span class="n">-Path</span> <span class="s2">&quot;WSMan:\localhost\Service\Auth\CredSSP&quot;</span> <span class="n">-Value</span> <span class="nv">$true</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Geek Stuff</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ansible</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#awx">AWX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flutter.html">Flutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hugo.html">Hugo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="istio.html">Istio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strapi.html">Strapi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html">Vagrant</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../he/hiit.html">HIIT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../../index.html" title="previous chapter">Information Technology</a></li>
+      <li>Next: <a href="flutter.html" title="next chapter">Flutter</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Joao Moreira.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/contents/it/ansible.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
