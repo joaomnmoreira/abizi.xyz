@@ -12,6 +12,8 @@ Cheat Sheets
 
 - `sphinx-doc.org <https://www.sphinx-doc.org/en/latest/contents.html>`__
 - `docs.typo3.org <https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/Index.html>`__
+- `thomas-cokelaer.info <https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html>`__
+- `Openalea documentation <http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html>`__
 
 Extensions
 ==========
