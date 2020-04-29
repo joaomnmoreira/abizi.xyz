@@ -12,11 +12,12 @@ Information Technology
    contents/it/ansible.rst
    contents/it/flutter.rst
    contents/it/hugo.rst
-   contents/it/istio.rst
    contents/it/kubernetes.rst
+   contents/it/redhat.rst
    contents/it/strapi.rst
    contents/it/sphinx.rst
    contents/it/vagrant.rst
+   contents/it/windows.rst
 
 Health & Exercise
 ======================

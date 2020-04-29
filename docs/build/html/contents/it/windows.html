@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Kubernetes &#8212; Geek Stuff 0.0.1 documentation</title>
+    <title>Windows &#8212; Geek Stuff 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -17,8 +17,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Red Hat" href="redhat.html" />
-    <link rel="prev" title="Hugo" href="hugo.html" />
+    <link rel="next" title="HIIT" href="../he/hiit.html" />
+    <link rel="prev" title="Vagrant" href="vagrant.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -35,47 +35,40 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="kubernetes">
-<h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="istio">
-<h2>Istio<a class="headerlink" href="#istio" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
-</div>
-<div class="section" id="knative">
-<h2>Knative<a class="headerlink" href="#knative" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>API</p></li>
+  <div class="section" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="upgrade-digital-license-hardware-to-product-key-oem">
+<h2>Upgrade digital license (hardware) to product key (OEM)<a class="headerlink" href="#upgrade-digital-license-hardware-to-product-key-oem" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Download <a class="reference external" href="https://www.microsoft.com/en-gb/software-download/windows10ISO">Windows 10 ISO</a>;</p></li>
+<li><p>Burn an ISO to an USB pen with <a class="reference external" href="https://rufus.ie/">Rufus</a>, or <a class="reference external" href="https://www.microsoft.com/en-gb/software-download/windows10">Windows Media Creation Tool</a>;</p></li>
+<li><dl>
+<dt>Browse ‘/sources’ folder in burned USB pen, and <a class="reference external" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-edition-configuration-and-product-id-files--eicfg-and-pidtxt">add/change two files</a>:</dt><dd><ul class="simple">
+<li><p>EI.cfg</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kn</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="tekton">
-<h2>Tekton<a class="headerlink" href="#tekton" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="openshift">
-<h2>OpenShift<a class="headerlink" href="#openshift" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
-</div>
-<div class="section" id="envoy">
-<h2>Envoy<a class="headerlink" href="#envoy" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
-</div>
-<div class="section" id="jaeger">
-<h2>Jaeger<a class="headerlink" href="#jaeger" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
-</div>
-<div class="section" id="kiali">
-<h2>Kiali<a class="headerlink" href="#kiali" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
-</div>
-<div class="section" id="prometheus-grafana">
-<h2>Prometheus/Grafana<a class="headerlink" href="#prometheus-grafana" title="Permalink to this headline">¶</a></h2>
-<p>[develop]</p>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> [Channel]
+<span class="hll"> OEM
+</span> [VL]
+<span class="hll"> 0
+</span></pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>PID.txt</p></li>
+</ul>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span> [PID]
+<span class="hll"> Value=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+</span></pre></div>
+</td></tr></table></div>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
 </div>
 </div>
 
@@ -100,21 +93,15 @@
 <li class="toctree-l1"><a class="reference internal" href="ansible.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flutter.html">Flutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hugo.html">Hugo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Kubernetes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#istio">Istio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#knative">Knative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tekton">Tekton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#openshift">OpenShift</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#envoy">Envoy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jaeger">Jaeger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kiali">Kiali</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#prometheus-grafana">Prometheus/Grafana</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="redhat.html">Red Hat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strapi.html">Strapi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vagrant.html">Vagrant</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-digital-license-hardware-to-product-key-oem">Upgrade digital license (hardware) to product key (OEM)</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../he/hiit.html">HIIT</a></li>
@@ -124,8 +111,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="hugo.html" title="previous chapter">Hugo</a></li>
-      <li>Next: <a href="redhat.html" title="next chapter">Red Hat</a></li>
+      <li>Previous: <a href="vagrant.html" title="previous chapter">Vagrant</a></li>
+      <li>Next: <a href="../he/hiit.html" title="next chapter">HIIT</a></li>
   </ul></li>
 </ul>
 </div>
@@ -159,7 +146,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/contents/it/kubernetes.rst.txt"
+      <a href="../../_sources/contents/it/windows.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

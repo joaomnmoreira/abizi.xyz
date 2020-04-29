@@ -1,11 +1,10 @@
 ======
 Strapi
 ======
-
 .. highlight:: console
 
-Installation
-============
+Install
+=======
 ::
 
     npx create-strapi-app video-platform --quickstart
@@ -13,32 +12,31 @@ Installation
 Useful commands
 ===============
 
-Start Strapi in watch mode
---------------------------
+- Start Strapi in watch mode
+
 ::
 
     npm run develop
 
-Start Strapi without watch mode
--------------------------------
+- Start Strapi without watch mode
+
 ::
 
     npm run start
 
-Build Strapi admin panel
-------------------------
+- Build Strapi admin panel
+
 ::
 
     npm run build
 
-Display all available commands
-------------------------------
+- Display all available commands
+
 ::
 
     npm run strapi
 
 You can start by doing:
-
 ::
     
     cd /opt/sportmultimedia/Repo/video-platform
