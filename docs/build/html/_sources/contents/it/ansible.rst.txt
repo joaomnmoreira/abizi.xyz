@@ -25,7 +25,7 @@ To enable a windows host in order to be connected by ansible, run the following 
     (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
     powershell.exe -ExecutionPolicy ByPass -File $file -Verbose -EnableCredSSP
 
-And, add user to be used as **ansible_user** with administrative privileges.
+And, add user to be used as **ansible_user** within AWX, with administrative privileges.
 
 AWX Configuration
 -----------------
