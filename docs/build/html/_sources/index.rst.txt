@@ -10,7 +10,9 @@ Information Technology
    :maxdepth: 2
 
    contents/it/ansible.rst
+   contents/it/cybersecurity.rst
    contents/it/flutter.rst
+   contents/it/hardening.rst
    contents/it/hugo.rst
    contents/it/kubernetes.rst
    contents/it/redhat.rst
