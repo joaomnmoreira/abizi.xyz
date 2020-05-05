@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OpenShift &#8212; Geek Stuff 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Prometheus" href="prometheus.html" />
+    <link rel="prev" title="Hugo" href="hugo.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="openshift">
+<h1>OpenShift<a class="headerlink" href="#openshift" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="kubernetes">
+<h2>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://redhat-developer-demos.github.io/kubernetes-tutorial">Red Hat Kubernetes Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/">kubernetes.io</a></p></li>
+</ul>
+</div>
+<div class="section" id="terms">
+<h3>Terms<a class="headerlink" href="#terms" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/kubernetes_terms.png"><img alt="Kubernetes Terms" src="../../_images/kubernetes_terms.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Work with configuration:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export KUBECONFIG=~/openshift-installer/gcp/auth/kubeconfig</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="namespace">
+<h3>Namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create namespace (resource management):</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl create namespace myspace</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Setting namespace (in order to not specify in every single command):</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl config set-context --current --namespace=myspace</span>
+</pre></div>
+</div>
+<p>Or, with openshift (if running):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">oc project myspace</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pods">
+<h3>Pods<a class="headerlink" href="#pods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create pod:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat &lt;&lt;EOF | kubectl apply -f -</span>
+<span class="go">apiVersion: v1</span>
+<span class="go">kind: pod</span>
+<span class="go">metadata:</span>
+<span class="go">  name: quarkus-demo</span>
+<span class="go">    containers:</span>
+<span class="go">    - name: quarkus-demo</span>
+<span class="go">      image: quay.io/rhdevelopers/quarkus-demo:v1</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get list of pods running (in namespace):</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl get pod</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Enter pod:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl exec quarkus-demo -it /bin/bash</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Delete pod:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl delete pod &lt;pod&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="replicaset">
+<h3>ReplicaSet<a class="headerlink" href="#replicaset" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create a ReplicaSet:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat &lt;&lt;EOF | kubectl apply -f -</span>
+<span class="go">apiVersion: apps/v1</span>
+<span class="go">kind: ReplicaSet</span>
+<span class="go">metadata:</span>
+<span class="go">    name: rs-quarkus-demo</span>
+<span class="go">spec:</span>
+<span class="go">    replicas: 3</span>
+<span class="go">    selector:</span>
+<span class="go">        matchLabels:</span>
+<span class="go">           app: quarkus-demo</span>
+<span class="go">    template:</span>
+<span class="go">        metadata:</span>
+<span class="go">           labels:</span>
+<span class="go">              app: quarkus-demo</span>
+<span class="go">              env: dev</span>
+<span class="go">        spec:</span>
+<span class="go">             containers:</span>
+<span class="go">             - name: quarkus-demo</span>
+<span class="go">               image: quay.io/rhdevelopers/quarkus-demo:v1</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Edit ReplicaSet:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl edit rs rs-quarkus-demo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Describe ReplicaSet:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl describe rs rs-quarkus-demo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Delete ReplicaSet:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl delete rs rs-quarkus-demo</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deployments">
+<h3>Deployments<a class="headerlink" href="#deployments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create a Deployment:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat &lt;&lt;EOF | kubectl apply -f -</span>
+<span class="go">apiVersion: apps/v1</span>
+<span class="go">kind: Deployment</span>
+<span class="go">metadata:</span>
+<span class="go">    name: quarkus-demo-deployment</span>
+<span class="go">spec:</span>
+<span class="go">    replicas: 3</span>
+<span class="go">    selector:</span>
+<span class="go">        matchLabels:</span>
+<span class="go">           app: quarkus-demo</span>
+<span class="go">    template:</span>
+<span class="go">        metadata:</span>
+<span class="go">           labels:</span>
+<span class="go">              app: quarkus-demo</span>
+<span class="go">              env: dev</span>
+<span class="go">        spec:</span>
+<span class="go">             containers:</span>
+<span class="go">             - name: quarkus-demo</span>
+<span class="go">               image: quay.io/rhdevelopers/quarkus-demo:v1</span>
+<span class="go">               imagePullPolicy: Always</span>
+<span class="go">               ports:</span>
+<span class="go">               - containerPort: 8080</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+<p>NOTE: If in production use <a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/overview/#container-images">imagePullPolicy: IfNotPresent</a></p>
+<ul class="simple">
+<li><p>Get Deployments:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl get deployments</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Describe Deployments:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl describe deployment &lt;deployment name&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logs">
+<h3>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Get pod logs:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl logs &lt;pod name&gt;</span>
+<span class="go">stern &lt;app name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="service">
+<h3>Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create a Service:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat &lt;&lt;EOF | kubectl apply -f -</span>
+<span class="go">apiVersion: v1</span>
+<span class="go">kind: Service</span>
+<span class="go">metadata:</span>
+<span class="go">  name: the-service</span>
+<span class="go">spec:</span>
+<span class="go">  selector:</span>
+<span class="go">    app: quarkus-demo</span>
+<span class="go">  ports:</span>
+<span class="go">    - protocol: TCP</span>
+<span class="go">      port: 80</span>
+<span class="go">      targetPort: 8080</span>
+<span class="go">  type: LoadBalancer</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+<p>NOTE: Uses labels in order to random requests, via <strong>selector</strong> field.</p>
+<ul class="simple">
+<li><p>Get Services:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl get services</span>
+<span class="go">kubectl get service</span>
+<span class="go">kubectl get svc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get Endpoints:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl get endpoints</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ingress-expose">
+<h3>Ingress/Expose<a class="headerlink" href="#ingress-expose" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create Ingress:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat &lt;&lt;EOF | kubectl apply -f -</span>
+<span class="go">apiVersion: networking.k8s.io/v1beta1</span>
+<span class="go">kind: Ingress</span>
+<span class="go">metadata:</span>
+<span class="go">  name: myingress</span>
+<span class="go">spec:</span>
+<span class="go">  rules:</span>
+<span class="go">  - host: &lt;cluster domain&gt;</span>
+<span class="go">    http:</span>
+<span class="go">      paths:</span>
+<span class="go">      - path: /</span>
+<span class="go">        backend:</span>
+<span class="go">          serviceName: the-service</span>
+<span class="go">          servicePort: 80</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get Ingress:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl get ingress</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Delete Ingress:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl delete ingress &lt;ingress name&gt;</span>
+</pre></div>
+</div>
+<p>Ingress has a router/revproxy based on haproxy.</p>
+<ul class="simple">
+<li><p>Expose Service:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">oc expose svc &lt;service name&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get exposed route:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl get route</span>
+<span class="go">oc get route</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Delete exposed route:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl delete route &lt;service name&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="blue-green-deployments">
+<h3>Blue/Green Deployments<a class="headerlink" href="#blue-green-deployments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Manage pods in service through labels:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl label pod -l app=mypython inservice=mypods</span>
+<span class="go">kubectl label pod -l &lt;label in use&gt; inservice=&lt;inservice name&gt;</span>
+</pre></div>
+</div>
+<p>NOTE: Service must have a <strong>inservice</strong> <em>selector</em>.</p>
+<ul class="simple">
+<li><p>Remove pods in service through labels:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl label pod -l app=mypython inservice-</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="istio">
+<h2>Istio<a class="headerlink" href="#istio" title="Permalink to this headline">¶</a></h2>
+<p>[develop]</p>
+</div>
+<div class="section" id="knative">
+<h2>Knative<a class="headerlink" href="#knative" title="Permalink to this headline">¶</a></h2>
+<p>[develop]</p>
+<div class="section" id="id1">
+<h3>Reference<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>API</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tekton">
+<h2>Tekton<a class="headerlink" href="#tekton" title="Permalink to this headline">¶</a></h2>
+<p>[develop]</p>
+</div>
+<div class="section" id="envoy">
+<h2>Envoy<a class="headerlink" href="#envoy" title="Permalink to this headline">¶</a></h2>
+<p>[develop]</p>
+</div>
+<div class="section" id="jaeger">
+<h2>Jaeger<a class="headerlink" href="#jaeger" title="Permalink to this headline">¶</a></h2>
+<p>[develop]</p>
+</div>
+<div class="section" id="kiali">
+<h2>Kiali<a class="headerlink" href="#kiali" title="Permalink to this headline">¶</a></h2>
+<p>[develop]</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Geek Stuff</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cybersecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flutter.html">Flutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardening.html">Hardening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hugo.html">Hugo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OpenShift</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#istio">Istio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#knative">Knative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tekton">Tekton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#envoy">Envoy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jaeger">Jaeger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kiali">Kiali</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="redhat.html">Red Hat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strapi.html">Strapi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html">Vagrant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../he/hiit.html">HIIT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="hugo.html" title="previous chapter">Hugo</a></li>
+      <li>Next: <a href="prometheus.html" title="next chapter">Prometheus</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Joao Moreira.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/contents/it/openshift.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

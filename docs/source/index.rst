@@ -14,7 +14,8 @@ Information Technology
    contents/it/flutter.rst
    contents/it/hardening.rst
    contents/it/hugo.rst
-   contents/it/kubernetes.rst
+   contents/it/openshift.rst
+   contents/it/prometheus.rst
    contents/it/redhat.rst
    contents/it/strapi.rst
    contents/it/sphinx.rst
