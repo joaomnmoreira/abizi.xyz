@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Quarkus &#8212; Geek Stuff 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Red Hat" href="redhat.html" />
+    <link rel="prev" title="Prometheus" href="prometheus.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="quarkus">
+<h1>Quarkus<a class="headerlink" href="#quarkus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="books">
+<h2>Books<a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://shop.oreilly.com/product/0636920353171.do">Quarkus Cookbook</a></p></li>
+</ul>
+</div>
+<div class="section" id="master-course">
+<h2>Master Course<a class="headerlink" href="#master-course" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Red Hat Quarkus Master Course</dt><dd><ul>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=w5wQha9pO4k">Video</a></p></li>
+<li><p><a class="reference external" href="https://dn.dev/quarkusmaster">Slides</a></p></li>
+<li><p><a class="reference external" href="https://​dn.dev/quarkus-tutorial">Tutorial</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://quarkus.io">Quarkus.io</a></p></li>
+<li><p><a class="reference external" href="https://www.graalvm.org/">Graalvm.org</a></p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="vscode-extensions">
+<h3>VSCODE Extensions<a class="headerlink" href="#vscode-extensions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>View <a class="reference external" href="https://​dn.dev/quarkus-tutorial">Tutorial</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Compile APP (jar)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mvn package</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run compiled APP (jar)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">java -jar target/fruits-app-1.0-SNAPSHOT-runner.jar</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Compile APP (native with graalvm)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mvn package -Pnative</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run compiled APP (native)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./target/fruits-app-1.0-SNAPSHOT-runner</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run APP (development mode, aka live coding)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./mvnw quarkus:dev</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create kubernetes package</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./mvnw clean package -DskipTests -Dquarkus.container-image.push=true</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Geek Stuff</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cybersecurity.html">Cyber Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flutter.html">Flutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardening.html">Hardening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hugo.html">Hugo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openshift.html">OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quarkus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#master-course">Master Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="redhat.html">Red Hat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strapi.html">Strapi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html">Vagrant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../he/hiit.html">HIIT</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="prometheus.html" title="previous chapter">Prometheus</a></li>
+      <li>Next: <a href="redhat.html" title="next chapter">Red Hat</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Joao Moreira.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/contents/it/quarkus.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

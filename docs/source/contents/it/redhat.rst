@@ -4,6 +4,8 @@ Red Hat
 
 .. highlight:: console
 
+- `Master Courses <https://dn.dev/master>`__
+
 Books
 =====
 
@@ -50,14 +52,6 @@ Tekton
     - `Slides <https://dn.dev/tektonmaster>`__
     - `Tutorial <https://​dn.dev/tekton-tutorial>`__
     - `Git <https://github.com/redhat-developer-demos/blue-green-canary/>`__
-
-Quarkus
-=======
-
-- Red Hat Quarkus Master Course
-    - `Video <https://www.youtube.com>`__
-    - `Slides <https://dn.dev/>`__
-    - `Tutorial <https://​dn.dev/quarkus-tutorial>`__
 
 Kubernetes 4K
 =============
