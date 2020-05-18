@@ -9,6 +9,8 @@ Red Hat
 Books
 =====
 
+- `Kubernetes Operators <http://dn.dev/k8soperators>`__
+- `Kubernetes Patterns <http://dn.dev/k8spatterns1>`__
 - `Knative Cookbook <https://dn.dev/knative-cookbook>`__
 - `Microservice database migration guide <https://dn.dev/tek-monotomicrodb>`__
 - `Introducing Istio Service Mesh for Microservices <https://dn.dev/tek-istiobook>`__
@@ -27,6 +29,22 @@ Kubernetes
     - Day #2
         - `Video <https://www.youtube.com/watch?v=C95n0fOqxZk>`__
         - `Slides <https://dn.dev/kubemaster2>`__
+
+- Kubernetes Operator SDK I Master Course
+    - `Operator Framework <https://github.com/operator-framework>`__
+    - `Git <https://dn.dev/operators-homework>`__
+    - Day #1
+        - `Video <https://www.youtube.com/watch?v=ZU6gVQqj0IA>`__
+        - `Slides <https://dn.dev/operatorsdk1>`__
+
+Openshift
+=========
+
+- OpenShift Administrators & Operations Master Course I
+    - `Git <https://dn.dev/ops-homework>`__
+    - Day #1
+        - `Video <https://www.youtube.com/watch?v=fXFJXCaJ-vg>`__
+        - `Slides <https://dn.dev/opsmaster1>`__
 
 Istio
 =====
@@ -64,3 +82,37 @@ References
 ----------
 
     - `strimzio.io <https://strimzi.io/>`__
+
+Istio
+=====
+[develop]
+
+Knative
+=======
+[develop]
+
+Reference
+---------
+
+- API
+
+::
+    
+    kn
+
+Tekton
+======
+[develop]
+
+Envoy
+=====
+[develop]
+
+Jaeger
+======
+[develop]
+
+Kiali
+=====
+[develop]
+

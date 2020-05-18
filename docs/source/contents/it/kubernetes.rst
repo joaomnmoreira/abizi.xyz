@@ -1,11 +1,8 @@
-=========
-OpenShift 
-=========
+==========
+Kubernetes 
+==========
 
 .. highlight:: console
-
-Kubernetes
-==========
 
 Reference
 ---------
@@ -299,36 +296,23 @@ NOTE: Service must have a **inservice** *selector*.
 
     kubectl label pod -l app=mypython inservice-
 
-Istio
-=====
-[develop]
+Operators
+=========
 
-Knative
-=======
-[develop]
-
-Reference
----------
-
-- API
+- Create an helm operator with a blank chart:
 
 ::
-    
-    kn
 
-Tekton
-======
-[develop]
+    operator-sdk new vis-helm --type=helm --api-version dobtech.io/v1 --kind Visitorsite
 
-Envoy
-=====
-[develop]
+- Create an helm operator with an existing helm archive/chart:
 
-Jaeger
-======
-[develop]
+::
 
-Kiali
-=====
-[develop]
+    operator-sdk new vis-helm --type=helm --api-version dobtech.io/v1 --kind Visitors --helm-chart https://github.com/kubernetes-operators-book/chapters/releases/download/1.0.0/visitors-helm.tgz
 
+- Create an ansible operator with a blank chart:
+
+::
+
+    operator-sdk new vis-ansible --type=ansible --api-version dobtech.io/v1 --kind Visitorsite

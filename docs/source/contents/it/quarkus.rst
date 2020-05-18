@@ -12,7 +12,8 @@ Master Course
 =============
 
 - Red Hat Quarkus Master Course
-    - `Video <https://www.youtube.com/watch?v=w5wQha9pO4k>`__
+    - `Quarkus Master Course Basics (Portuguese) <https://www.youtube.com/watch?v=w5wQha9pO4k>`__
+    - `Quarkus Master Course Cloud Native (Portuguese) <https://www.youtube.com/watch?v=UmgtuDJYtUw>`__
     - `Slides <https://dn.dev/quarkusmaster>`__
     - `Tutorial <https://​dn.dev/quarkus-tutorial>`__
 

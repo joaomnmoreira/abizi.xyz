@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -17,8 +18,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Hugo" href="hugo.html" />
-    <link rel="prev" title="Documentation!" href="../../index.html" />
+    <link rel="next" title="Hardening" href="hardening.html" />
+    <link rel="prev" title="Cyber Security" href="cybersecurity.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -37,8 +38,79 @@
             
   <div class="section" id="flutter">
 <h1>Flutter<a class="headerlink" href="#flutter" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-on-windows">
+<h2>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>In order to have a working minimal developer environment (aka, without Android Studio installed), i have researched quite a bit on available resources, and with try and error approach i managed to get things working with following setup:</p>
+<ol class="arabic simple">
+<li><p>Download <a class="reference external" href="https://flutter.dev/docs/get-started/install/windows#android-setup">flutter</a>;</p></li>
+<li><p>Download the older <a class="reference external" href="https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip">sdk-tools</a> to ‘D:\Develop\android\sdk’. Could not make it with Command Line Tools latest version (at the time of writing ‘commandlinetools-win-6200805_latest.zip’);</p></li>
+<li><p>Download <a class="reference external" href="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u252-b09.1/OpenJDK8U-jdk_x64_windows_hotspot_8u252b09.zip">Adoptopenjdk 8 (LTS) version</a> to ‘D:\Develop\adoptopenjdk-8’;</p></li>
+<li><p>Create the following user environment variables:</p></li>
+</ol>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Environment Variables</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ANDROID_HOME</p></td>
+<td><p>D:\Develop\android</p></td>
+</tr>
+<tr class="row-odd"><td><p>ANDROID_SDK_ROOT</p></td>
+<td><p>D:\Develop\android\sdk</p></td>
+</tr>
+<tr class="row-even"><td><p>FLUTTER_HOME</p></td>
+<td><p>D:\Develop\flutter</p></td>
+</tr>
+<tr class="row-odd"><td><p>JAVA_HOME</p></td>
+<td><p>D:\Develop\adoptopenjdk-8</p></td>
+</tr>
+<tr class="row-even"><td><p>Path</p></td>
+<td><p>%ANDROID_HOME%
+%FLUTTER_HOME%\bin
+%ANDROID_SDK_ROOT%
+%ANDROID_SDK_ROOT%\bin
+%JAVA_HOME%\bin</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p>Install <a class="reference external" href="https://flutter.dev/docs/get-started/editor?tab=vscode">VS Code and Flutter/Dart plugins</a>;</p></li>
+<li><p>Open a command prompt/powershell and check if android sdk tools work:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sdkmanager --list</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Run flutter doctor to verify dependecy problems:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">flutter doctor -v</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Install Android SDK:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sdkmanager --install &quot;system-images;android-27;default;x86_64&quot; &quot;platform-tools&quot; &quot;platforms;android-29&quot; &quot;build-tools;29.0.2&quot; &quot;platforms;android-28&quot; &quot;build-tools;28.0.3&quot; emulator extras;intel;Hardware_Accelerated_Execution_Manager</span>
+</pre></div>
+</div>
+<ul>
+<li><p>References:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://cloudreports.net/install-android-sdk-on-windows-10-without-android-studio/">Install-android-sdk-on-windows-10-without-android-studio</a></p></li>
+<li><p><a class="reference external" href="https://www.majed-learn.com/en/post/install-flutter-without-android-studio/">Install-flutter-without-android-studio</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/37505709/how-do-i-download-the-android-sdk-without-downloading-android-studio">Sdk-tools enabler version</a></p></li>
+<li><p><a class="reference external" href="https://adoptopenjdk.net/">Adoptopenjdk</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
 </div>
 </div>
 
@@ -59,24 +131,36 @@
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cybersecurity.html">Cyber Security</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Flutter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-on-windows">Install on Windows</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="hardening.html">Hardening</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hugo.html">Hugo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quarkus.html">Quarkus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="redhat.html">Red Hat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strapi.html">Strapi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terraform.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vagrant.html">Vagrant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../he/hiit.html">HIIT</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../../index.html" title="previous chapter">Documentation!</a></li>
-      <li>Next: <a href="hugo.html" title="next chapter">Hugo</a></li>
+      <li>Previous: <a href="cybersecurity.html" title="previous chapter">Cyber Security</a></li>
+      <li>Next: <a href="hardening.html" title="next chapter">Hardening</a></li>
   </ul></li>
 </ul>
 </div>
@@ -102,20 +186,12 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2020, Joao Moreira.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/contents/it/flutter.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="footer" margin:auto>
+        &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
+    <br>
+      <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> 3.0.1 & <a href="https://github.com/bitprophet/alabaster"> Alabaster</a> 0.7.12    
+    <br>
+      Last updated on May 19, 2020
     </div>
-
-    
-
-    
   </body>
 </html>

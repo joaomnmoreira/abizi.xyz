@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Sphinx &#8212; Geek Stuff 0.0.1 documentation</title>
+    <title>Terraform &#8212; Geek Stuff 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -18,8 +18,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Terraform" href="terraform.html" />
-    <link rel="prev" title="Strapi" href="strapi.html" />
+    <link rel="next" title="Vagrant" href="vagrant.html" />
+    <link rel="prev" title="Sphinx" href="sphinx.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -36,29 +36,37 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="sphinx">
-<h1>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="cheat-sheets">
-<h2>Cheat Sheets<a class="headerlink" href="#cheat-sheets" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="terraform">
+<h1>Terraform<a class="headerlink" href="#terraform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/latest/contents.html">sphinx-doc.org</a></p></li>
-<li><p><a class="reference external" href="https://rest-sphinx-memo.readthedocs.io/">rest-sphinx-memo</a></p></li>
-<li><p><a class="reference external" href="https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/Index.html">docs.typo3.org</a></p></li>
-<li><p><a class="reference external" href="https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html">thomas-cokelaer.info</a></p></li>
-<li><p><a class="reference external" href="http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html">Openalea documentation</a></p></li>
+<li><p><a class="reference external" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">[Gruntwork] How to manage Terraform state</a></p></li>
+<li><p><a class="reference external" href="https://github.com/MattMorgis/digitalocean-spaces-terraform-backend">Terraform S3 Backend</a></p></li>
+<li><p><a class="reference external" href="https://jamesmckay.net/2016/09/sharing-data-between-terraform-configurations/">Sharing data between terraform configurations</a></p></li>
 </ul>
 </div>
-<div class="section" id="extensions">
-<h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://sphinx-copybutton.readthedocs.io/en/latest/">sphinx-copybutton</a></p></li>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Terraform init</p></li>
 </ul>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY</span>
+
+<span class="go">- Terraform plan</span>
+</pre></div>
 </div>
-<div class="section" id="github-pages">
-<h2>GitHub Pages<a class="headerlink" href="#github-pages" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform plan -var &quot;do_token=${DIGITALOCEAN_ACCESS_TOKEN}&quot; -out=tfplan -input=false</span>
+<span class="go">terraform plan -var &quot;do_token=${DIGITALOCEAN_ACCESS_TOKEN}&quot; -var &quot;spaces_token=${SPACES_ACCESS_TOKEN}&quot; -var &quot;spaces_secret=${SPACES_SECRET_KEY}&quot; -out=tfplan -input=false</span>
+
+<span class="go">- Terraform apply</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform apply -input=false tfplan</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -91,14 +99,12 @@
 <li class="toctree-l1"><a class="reference internal" href="quarkus.html">Quarkus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="redhat.html">Red Hat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strapi.html">Strapi</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cheat-sheets">Cheat Sheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#extensions">Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#github-pages">GitHub Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terraform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="terraform.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vagrant.html">Vagrant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
 </ul>
@@ -110,8 +116,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="strapi.html" title="previous chapter">Strapi</a></li>
-      <li>Next: <a href="terraform.html" title="next chapter">Terraform</a></li>
+      <li>Previous: <a href="sphinx.html" title="previous chapter">Sphinx</a></li>
+      <li>Next: <a href="vagrant.html" title="next chapter">Vagrant</a></li>
   </ul></li>
 </ul>
 </div>

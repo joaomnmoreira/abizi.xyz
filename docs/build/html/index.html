@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -48,7 +49,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/flutter.html">Flutter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/flutter.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/flutter.html#install-on-windows">Install on Windows</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/hardening.html">Hardening</a><ul>
@@ -59,14 +60,22 @@
 <li class="toctree-l2"><a class="reference internal" href="contents/it/hugo.html#install">Install</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="contents/it/openshift.html">OpenShift</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#kubernetes">Kubernetes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#istio">Istio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#knative">Knative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#tekton">Tekton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#envoy">Envoy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#jaeger">Jaeger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contents/it/openshift.html#kiali">Kiali</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/it/linux.html">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/linux.html#packages-howto">Packages &amp; HowTo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents/it/kubernetes.html">Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#terms">Terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#namespace">Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#pods">Pods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#replicaset">ReplicaSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#deployments">Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#logs">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#service">Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#ingress-expose">Ingress/Expose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/kubernetes.html#blue-green-deployments">Blue/Green Deployments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/prometheus.html">Prometheus</a><ul>
@@ -82,10 +91,17 @@
 <li class="toctree-l1"><a class="reference internal" href="contents/it/redhat.html">Red Hat</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#books">Books</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#kubernetes">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#openshift">Openshift</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#istio">Istio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#knative">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#tekton">Tekton</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#kubernetes-4k">Kubernetes 4K</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#id1">Istio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#id2">Knative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#id3">Tekton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#envoy">Envoy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#jaeger">Jaeger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/redhat.html#kiali">Kiali</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/strapi.html">Strapi</a><ul>
@@ -98,6 +114,11 @@
 <li class="toctree-l2"><a class="reference internal" href="contents/it/sphinx.html#cheat-sheets">Cheat Sheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/sphinx.html#extensions">Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contents/it/sphinx.html#github-pages">GitHub Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contents/it/terraform.html">Terraform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/terraform.html#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contents/it/terraform.html#commands">Commands</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/vagrant.html">Vagrant</a><ul>
@@ -154,12 +175,14 @@
 <li class="toctree-l1"><a class="reference internal" href="contents/it/flutter.html">Flutter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/hardening.html">Hardening</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/hugo.html">Hugo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contents/it/openshift.html">OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/it/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/it/kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/prometheus.html">Prometheus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/quarkus.html">Quarkus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/redhat.html">Red Hat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/strapi.html">Strapi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/sphinx.html">Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/it/terraform.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/vagrant.html">Vagrant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents/it/windows.html">Windows</a></li>
 </ul>
@@ -197,20 +220,12 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2020, Joao Moreira.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/index.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="footer" margin:auto>
+        &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
+    <br>
+      <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> 3.0.1 & <a href="https://github.com/bitprophet/alabaster"> Alabaster</a> 0.7.12    
+    <br>
+      Last updated on May 19, 2020
     </div>
-
-    
-
-    
   </body>
 </html>
