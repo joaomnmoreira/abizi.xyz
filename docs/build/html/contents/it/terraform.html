@@ -27,54 +27,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="terraform">
-<h1>Terraform<a class="headerlink" href="#terraform" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">[Gruntwork] How to manage Terraform state</a></p></li>
-<li><p><a class="reference external" href="https://github.com/MattMorgis/digitalocean-spaces-terraform-backend">Terraform S3 Backend</a></p></li>
-<li><p><a class="reference external" href="https://jamesmckay.net/2016/09/sharing-data-between-terraform-configurations/">Sharing data between terraform configurations</a></p></li>
-</ul>
-</div>
-<div class="section" id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p>Terraform init</p></li>
-</ul>
-</div></blockquote>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY</span>
-
-<span class="go">- Terraform plan</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform plan -var &quot;do_token=${DIGITALOCEAN_ACCESS_TOKEN}&quot; -out=tfplan -input=false</span>
-<span class="go">terraform plan -var &quot;do_token=${DIGITALOCEAN_ACCESS_TOKEN}&quot; -var &quot;spaces_token=${SPACES_ACCESS_TOKEN}&quot; -var &quot;spaces_secret=${SPACES_SECRET_KEY}&quot; -out=tfplan -input=false</span>
-
-<span class="go">- Terraform apply</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform apply -input=false tfplan</span>
-</pre></div>
-</div>
-</div>
-</div>
-
-
-          </div>
-          
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../../index.html">Geek Stuff</a></h1>
@@ -141,8 +95,53 @@
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="terraform">
+<h1>Terraform<a class="headerlink" href="#terraform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">[Gruntwork] How to manage Terraform state</a></p></li>
+<li><p><a class="reference external" href="https://github.com/MattMorgis/digitalocean-spaces-terraform-backend">Terraform S3 Backend</a></p></li>
+<li><p><a class="reference external" href="https://jamesmckay.net/2016/09/sharing-data-between-terraform-configurations/">Sharing data between terraform configurations</a></p></li>
+</ul>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Terraform init</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY</span>
+
+<span class="go">- Terraform plan</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform plan -var &quot;do_token=${DIGITALOCEAN_ACCESS_TOKEN}&quot; -out=tfplan -input=false</span>
+<span class="go">terraform plan -var &quot;do_token=${DIGITALOCEAN_ACCESS_TOKEN}&quot; -var &quot;spaces_token=${SPACES_ACCESS_TOKEN}&quot; -var &quot;spaces_secret=${SPACES_SECRET_KEY}&quot; -out=tfplan -input=false</span>
+
+<span class="go">- Terraform apply</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform apply -input=false tfplan</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer" margin:auto>
         &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
     <br>

@@ -27,57 +27,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="windows">
-<h1>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="upgrade-digital-license-hardware-to-product-key-oem">
-<h2>Upgrade digital license (hardware) to product key (OEM)<a class="headerlink" href="#upgrade-digital-license-hardware-to-product-key-oem" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic">
-<li><p>Download <a class="reference external" href="https://www.microsoft.com/en-gb/software-download/windows10ISO">Windows 10 ISO</a>;</p></li>
-<li><p>Burn an ISO to an USB pen with <a class="reference external" href="https://rufus.ie/">Rufus</a>, or <a class="reference external" href="https://www.microsoft.com/en-gb/software-download/windows10">Windows Media Creation Tool</a>;</p></li>
-<li><dl>
-<dt>Browse ‘/sources’ folder in burned USB pen, and <a class="reference external" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-edition-configuration-and-product-id-files--eicfg-and-pidtxt">add/change two files</a>:</dt><dd><ul class="simple">
-<li><p>EI.cfg</p></li>
-</ul>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> [Channel]
-<span class="hll"> OEM
-</span> [VL]
-<span class="hll"> 0
-</span></pre></div>
-</td></tr></table></div>
-<ul class="simple">
-<li><p>PID.txt</p></li>
-</ul>
-<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span> [PID]
-<span class="hll"> Value=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
-</span></pre></div>
-</td></tr></table></div>
-</dd>
-</dl>
-</li>
-</ol>
-</div></blockquote>
-</div>
-</div>
-
-
-          </div>
-          
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../../index.html">Geek Stuff</a></h1>
@@ -143,8 +94,56 @@
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="windows">
+<h1>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="upgrade-digital-license-hardware-to-product-key-oem">
+<h2>Upgrade digital license (hardware) to product key (OEM)<a class="headerlink" href="#upgrade-digital-license-hardware-to-product-key-oem" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Download <a class="reference external" href="https://www.microsoft.com/en-gb/software-download/windows10ISO">Windows 10 ISO</a>;</p></li>
+<li><p>Burn an ISO to an USB pen with <a class="reference external" href="https://rufus.ie/">Rufus</a>, or <a class="reference external" href="https://www.microsoft.com/en-gb/software-download/windows10">Windows Media Creation Tool</a>;</p></li>
+<li><dl>
+<dt>Browse ‘/sources’ folder in burned USB pen, and <a class="reference external" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-edition-configuration-and-product-id-files--eicfg-and-pidtxt">add/change two files</a>:</dt><dd><ul class="simple">
+<li><p>EI.cfg</p></li>
+</ul>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> [Channel]
+<span class="hll"> OEM
+</span> [VL]
+<span class="hll"> 0
+</span></pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>PID.txt</p></li>
+</ul>
+<div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span> [PID]
+<span class="hll"> Value=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+</span></pre></div>
+</td></tr></table></div>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer" margin:auto>
         &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
     <br>

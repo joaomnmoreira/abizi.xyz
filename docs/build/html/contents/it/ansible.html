@@ -27,74 +27,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="ansible">
-<h1>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="awx">
-<h2>AWX<a class="headerlink" href="#awx" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="enable-windows-host">
-<h3>Enable Windows Host<a class="headerlink" href="#enable-windows-host" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html">Windows Setup</a></p></li>
-<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html">Winrm</a></p></li>
-</ul>
-<p>To enable a windows host in order to be connected by ansible, run the following in PowerShell:</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$url</span> <span class="p">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1&quot;</span>
-<span class="nv">$file</span> <span class="p">=</span> <span class="s2">&quot;$env:temp\ConfigureRemotingForAnsible.ps1&quot;</span>
-<span class="p">(</span><span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadFile</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$file</span><span class="p">)</span>
-<span class="n">powershell</span><span class="p">.</span><span class="n">exe</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="o">-File</span> <span class="nv">$file</span> <span class="n">-Verbose</span> <span class="n">-EnableCredSSP</span>
-</pre></div>
-</div>
-<p>And, add user to be used as <strong>ansible_user</strong> within AWX, with administrative privileges.</p>
-</div>
-<div class="section" id="awx-configuration">
-<h3>AWX Configuration<a class="headerlink" href="#awx-configuration" title="Permalink to this headline">¶</a></h3>
-<p>Configure ansible vars at HOST or GROUP level</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
-<span class="nt">ansible_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;administrator user @ windows host&gt;</span>
-<span class="nt">ansible_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;administrator password @ windows host&gt;</span>
-<span class="nt">ansible_connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">winrm</span>
-<span class="nt">ansible_winrm_transport</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">credssp</span>
-<span class="nt">ansible_winrm_server_cert_validation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ignore</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="helpful-commands">
-<h3>Helpful Commands<a class="headerlink" href="#helpful-commands" title="Permalink to this headline">¶</a></h3>
-<p>Enumerate WinRM Listener</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">winrm</span> <span class="n">enumerate</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Listener</span>
-</pre></div>
-</div>
-<p>Current service configuration options</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">winrm</span> <span class="n">get</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Service</span>
-<span class="n">winrm</span> <span class="n">get</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Winrs</span>
-</pre></div>
-</div>
-<p>Enable CREDSSP</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Enable-WSManCredSSP</span> <span class="n">-Role</span> <span class="n">Server</span> <span class="n">-Force</span>
-<span class="nb">Set-Item</span> <span class="n">-Path</span> <span class="s2">&quot;WSMan:\localhost\Service\Auth\CredSSP&quot;</span> <span class="n">-Value</span> <span class="nv">$true</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-
-
-          </div>
-          
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../../index.html">Geek Stuff</a></h1>
@@ -161,8 +95,73 @@
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ansible">
+<h1>Ansible<a class="headerlink" href="#ansible" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="awx">
+<h2>AWX<a class="headerlink" href="#awx" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="enable-windows-host">
+<h3>Enable Windows Host<a class="headerlink" href="#enable-windows-host" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html">Windows Setup</a></p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html">Winrm</a></p></li>
+</ul>
+<p>To enable a windows host in order to be connected by ansible, run the following in PowerShell:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$url</span> <span class="p">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1&quot;</span>
+<span class="nv">$file</span> <span class="p">=</span> <span class="s2">&quot;$env:temp\ConfigureRemotingForAnsible.ps1&quot;</span>
+<span class="p">(</span><span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadFile</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nv">$file</span><span class="p">)</span>
+<span class="n">powershell</span><span class="p">.</span><span class="n">exe</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="o">-File</span> <span class="nv">$file</span> <span class="n">-Verbose</span> <span class="n">-EnableCredSSP</span>
+</pre></div>
+</div>
+<p>And, add user to be used as <strong>ansible_user</strong> within AWX, with administrative privileges.</p>
+</div>
+<div class="section" id="awx-configuration">
+<h3>AWX Configuration<a class="headerlink" href="#awx-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Configure ansible vars at HOST or GROUP level</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">ansible_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;administrator user @ windows host&gt;</span>
+<span class="nt">ansible_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;administrator password @ windows host&gt;</span>
+<span class="nt">ansible_connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">winrm</span>
+<span class="nt">ansible_winrm_transport</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">credssp</span>
+<span class="nt">ansible_winrm_server_cert_validation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ignore</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="helpful-commands">
+<h3>Helpful Commands<a class="headerlink" href="#helpful-commands" title="Permalink to this headline">¶</a></h3>
+<p>Enumerate WinRM Listener</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">winrm</span> <span class="n">enumerate</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Listener</span>
+</pre></div>
+</div>
+<p>Current service configuration options</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">winrm</span> <span class="n">get</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Service</span>
+<span class="n">winrm</span> <span class="n">get</span> <span class="n">winrm</span><span class="p">/</span><span class="n">config</span><span class="p">/</span><span class="n">Winrs</span>
+</pre></div>
+</div>
+<p>Enable CREDSSP</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Enable-WSManCredSSP</span> <span class="n">-Role</span> <span class="n">Server</span> <span class="n">-Force</span>
+<span class="nb">Set-Item</span> <span class="n">-Path</span> <span class="s2">&quot;WSMan:\localhost\Service\Auth\CredSSP&quot;</span> <span class="n">-Value</span> <span class="nv">$true</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer" margin:auto>
         &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
     <br>

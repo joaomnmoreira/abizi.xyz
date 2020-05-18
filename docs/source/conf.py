@@ -62,3 +62,20 @@ html_last_updated_fmt = '%b %d, %Y'
 #~ last_updated = True
 
 html_css_files = ['custom.css']
+
+# https://alabaster.readthedocs.io/en/latest/installation.html#sidebars
+html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+        'donate.html',
+    ]
+}
+
+# Alabaster basics
+html_theme_options = {
+    'fixed_sidebar': True,
+    'analytics_id': 'UA-167070247-1'
+}
