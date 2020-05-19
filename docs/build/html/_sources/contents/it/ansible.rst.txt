@@ -1,8 +1,13 @@
-==========
+=======
 Ansible
-==========
+=======
 
 .. highlight:: console
+
+Knowledge Base
+--------------
+
+- `Ansible playbook awesomeness | DevNation Tech Talk <https://www.youtube.com/watch?v=TB7zBMkzSnA>`__
 
 AWX
 ===
