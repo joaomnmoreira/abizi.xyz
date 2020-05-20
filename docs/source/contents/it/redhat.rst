@@ -30,12 +30,16 @@ Kubernetes
         - `Video <https://www.youtube.com/watch?v=C95n0fOqxZk>`__
         - `Slides <https://dn.dev/kubemaster2>`__
 
-- Kubernetes Operator SDK I Master Course
+- Kubernetes Operator SDK Master Course
     - `Operator Framework <https://github.com/operator-framework>`__
     - `Git <https://dn.dev/operators-homework>`__
     - Day #1
         - `Video <https://www.youtube.com/watch?v=ZU6gVQqj0IA>`__
         - `Slides <https://dn.dev/operatorsdk1>`__
+    - Day #1
+        - `Video <https://www.youtube.com/watch?v=v65mvkxYN9k>`__
+        - `Slides <https://dn.dev/operatorsdk2>`__
+
 
 Openshift
 =========
