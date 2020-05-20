@@ -1,17 +1,40 @@
 {% extends "!layout.html" %}
 
+{%- block extrahead %}
+  {{ super() }}
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-167070247-1']);
+      _gaq.push(['_trackPageview']);
+    </script>
+{% endblock %}
+
 {%- block footer %}
+  {{ super() }}
+    <div class="footer">This page uses <a href="https://analytics.google.com/">
+    Google Analytics</a> to collect statistics. You can disable it by blocking
+    the JavaScript coming from www.google-analytics.com.
+      <script>
+        (function() {
+          var ga = document.createElement('script');
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          ga.setAttribute('async', 'true');
+          document.documentElement.firstChild.appendChild(ga);
+        })();
+      </script>
+    </div>
+
     <div class="footer" margin:auto>
-    {%- if show_copyright %}
-      {%- if hasdoc('copyright') %}
-        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}{% endtrans %}
-      {%- else %}
-        {% trans copyright=copyright|e %}&copy;  <a href="mailto://joao.mn.moreira@gmail.com">{{ copyright }}</a>{% endtrans %}
+      {%- if show_copyright %}
+        {%- if hasdoc('copyright') %}
+          {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}{% endtrans %}
+        {%- else %}
+          {% trans copyright=copyright|e %}&copy;  <a href="mailto://joao.mn.moreira@gmail.com">{{ copyright }}</a>{% endtrans %}
+        {%- endif %}
       {%- endif %}
-    {%- endif %}
-    <br>
-    {%- if last_updated %}
-      {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}{% endtrans %}
-    {%- endif %}
+      <br>
+      {%- if last_updated %}
+        {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}{% endtrans %}
+      {%- endif %}
     </div>
 {%- endblock %} 
