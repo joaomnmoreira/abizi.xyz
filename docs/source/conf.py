@@ -77,5 +77,6 @@ html_sidebars = {
 # Alabaster basics
 html_theme_options = {
     'fixed_sidebar': True,
-    'analytics_id': 'UA-167070247-1'
+    'analytics_id': "UA-167070247-1"
 }
+
