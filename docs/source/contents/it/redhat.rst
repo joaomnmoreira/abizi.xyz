@@ -44,11 +44,15 @@ Kubernetes
 Openshift
 =========
 
-- OpenShift Administrators & Operations Master Course I
+- OpenShift Administrators & Operations Master Course
     - `Git <https://dn.dev/ops-homework>`__
     - Day #1
         - `Video <https://www.youtube.com/watch?v=fXFJXCaJ-vg>`__
         - `Slides <https://dn.dev/opsmaster1>`__
+    - Day #2
+        - `Video <https://www.youtube.com/watch?v=9w8WB-DuOQw>`__
+        - `Slides <https://dn.dev/opsmaster2>`__
+
 
 Istio
 =====
