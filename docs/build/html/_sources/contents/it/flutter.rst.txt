@@ -52,11 +52,70 @@ In order to have a working minimal developer environment (aka, without Android S
 
 ::
 
-    sdkmanager --install "system-images;android-27;default;x86_64" "platform-tools" "platforms;android-29" "build-tools;29.0.2" "platforms;android-28" "build-tools;28.0.3" emulator extras;intel;Hardware_Accelerated_Execution_Manager
+    sdkmanager --install "build-tools;29.0.3" "emulator" "extras;intel;Hardware_Accelerated_Execution_Manager" "patcher;v4" "platform-tools" "platforms;android-29" "system-images;android-29;default;x86_64" "system-images;android-29;google_apis;x86_64"
 
-- References:
+9. Installing Standalone Intel HAXM on Windows:
+
+- `Install HAXM <https://github.com/intel/haxm>`__
+- Verify that Intel HAXM is running:
+
+Open a Command Prompt window with administrator privileges (Run as Administrator) and execute the following command:
+
+::
+
+    sc query intelhaxm
+
+If Intel HAXM is working, the command will show a status message indicating that the state is: "4 RUNNING".
+
+To stop or start Intel HAXM, use these commands:
+
+Stop:
+
+::
+
+    sc stop intelhaxm
+
+Start:
+
+::
+
+    sc start intelhaxm
+
+Create emulator
+---------------
+
+- `Cheatsheet Emulators <https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae>`__
+
+- List available devices:
+
+::
+
+    avdmanager list
+
+- Create avd/emulator:
+
+::
+
+    avdmanager create avd --force --name Nexus6P --abi google_apis/x86_64 --package 'system-images;android-29;google_apis;x86_64' --device "Nexus 6P"
+
+- Lists existing Android Virtual Devices (avd):
+
+::
+
+    avdmanager list avd
+
+- Run avd/emulator:
+
+::
+
+    emulator @Nexus6P
+
+References
+----------
 
     - `Install-android-sdk-on-windows-10-without-android-studio <https://cloudreports.net/install-android-sdk-on-windows-10-without-android-studio/>`__
     - `Install-flutter-without-android-studio <https://www.majed-learn.com/en/post/install-flutter-without-android-studio/>`__
     - `Sdk-tools enabler version <https://stackoverflow.com/questions/37505709/how-do-i-download-the-android-sdk-without-downloading-android-studio>`__
     - `Adoptopenjdk <https://adoptopenjdk.net/>`__
+    - `HAXM Wiki <https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows>`__
+    - `Flutter Desktop Launcher <https://github.com/putraxor/flutter_desktop_launcher>`__

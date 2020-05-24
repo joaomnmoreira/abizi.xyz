@@ -53,6 +53,8 @@
 <li class="toctree-l1"><a class="reference internal" href="cybersecurity.html">Cyber Security</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Flutter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-on-windows">Install on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-emulator">Create emulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hardening.html">Hardening</a></li>
@@ -167,21 +169,71 @@
 <ol class="arabic simple" start="8">
 <li><p>Install Android SDK:</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sdkmanager --install &quot;system-images;android-27;default;x86_64&quot; &quot;platform-tools&quot; &quot;platforms;android-29&quot; &quot;build-tools;29.0.2&quot; &quot;platforms;android-28&quot; &quot;build-tools;28.0.3&quot; emulator extras;intel;Hardware_Accelerated_Execution_Manager</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sdkmanager --install &quot;build-tools;29.0.3&quot; &quot;emulator&quot; &quot;extras;intel;Hardware_Accelerated_Execution_Manager&quot; &quot;patcher;v4&quot; &quot;platform-tools&quot; &quot;platforms;android-29&quot; &quot;system-images;android-29;default;x86_64&quot; &quot;system-images;android-29;google_apis;x86_64&quot;</span>
 </pre></div>
 </div>
-<ul>
-<li><p>References:</p>
+<ol class="arabic simple" start="9">
+<li><p>Installing Standalone Intel HAXM on Windows:</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/intel/haxm">Install HAXM</a></p></li>
+<li><p>Verify that Intel HAXM is running:</p></li>
+</ul>
+<p>Open a Command Prompt window with administrator privileges (Run as Administrator) and execute the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sc query intelhaxm</span>
+</pre></div>
+</div>
+<p>If Intel HAXM is working, the command will show a status message indicating that the state is: “4 RUNNING”.</p>
+<p>To stop or start Intel HAXM, use these commands:</p>
+<p>Stop:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sc stop intelhaxm</span>
+</pre></div>
+</div>
+<p>Start:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sc start intelhaxm</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-emulator">
+<h2>Create emulator<a class="headerlink" href="#create-emulator" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae">Cheatsheet Emulators</a></p></li>
+<li><p>List available devices:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">avdmanager list</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create avd/emulator:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">avdmanager create avd --force --name Nexus6P --abi google_apis/x86_64 --package &#39;system-images;android-29;google_apis;x86_64&#39; --device &quot;Nexus 6P&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Lists existing Android Virtual Devices (avd):</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">avdmanager list avd</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run avd/emulator:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">emulator @Nexus6P</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference external" href="https://cloudreports.net/install-android-sdk-on-windows-10-without-android-studio/">Install-android-sdk-on-windows-10-without-android-studio</a></p></li>
 <li><p><a class="reference external" href="https://www.majed-learn.com/en/post/install-flutter-without-android-studio/">Install-flutter-without-android-studio</a></p></li>
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/37505709/how-do-i-download-the-android-sdk-without-downloading-android-studio">Sdk-tools enabler version</a></p></li>
 <li><p><a class="reference external" href="https://adoptopenjdk.net/">Adoptopenjdk</a></p></li>
+<li><p><a class="reference external" href="https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows">HAXM Wiki</a></p></li>
+<li><p><a class="reference external" href="https://github.com/putraxor/flutter_desktop_launcher">Flutter Desktop Launcher</a></p></li>
 </ul>
 </div></blockquote>
-</li>
-</ul>
 </div>
 </div>
 
@@ -206,7 +258,7 @@
     <div class="footer" margin:auto>
           &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
       <br>
-        Last updated on May 20, 2020
+        Last updated on May 24, 2020
     </div>
   </body>
 </html>
