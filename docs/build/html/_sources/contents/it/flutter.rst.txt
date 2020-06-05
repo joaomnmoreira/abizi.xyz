@@ -110,6 +110,16 @@ Create emulator
 
     emulator @Nexus6P
 
+Working workflow
+----------------
+
+1. Start emulator device in VS Code;
+2. Start app:
+
+::
+
+    flutter app
+
 References
 ----------
 

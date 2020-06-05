@@ -4,6 +4,11 @@ Vagrant
 
 .. highlight:: console
 
+Resources
+=========
+
+`Scotch Box’? <https://box.scotch.io/members/?now-free>`__
+
 Errors
 ======
 

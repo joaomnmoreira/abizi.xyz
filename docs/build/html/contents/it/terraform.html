@@ -126,6 +126,14 @@
 </ul>
 </div></blockquote>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY</span>
+<span class="go">terraform init -upgrade</span>
+
+<span class="go">- Terraform destroy</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">terraform taint digitalocean_droplet.project-droplet</span>
+<span class="go">terraform taint digitalocean_droplet.project-droplet[0]</span>
+<span class="go">terraform taint digitalocean_database_db.database-name</span>
 
 <span class="go">- Terraform plan</span>
 </pre></div>
@@ -293,7 +301,7 @@
     <div class="footer" margin:auto>
           &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
       <br>
-        Last updated on May 22, 2020
+        Last updated on Jun 05, 2020
     </div>
   </body>
 </html>

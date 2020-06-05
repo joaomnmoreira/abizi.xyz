@@ -19,6 +19,15 @@ Commands
 ::
     
     terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
+    terraform init -upgrade
+
+    - Terraform destroy
+
+::
+    
+    terraform taint digitalocean_droplet.project-droplet
+    terraform taint digitalocean_droplet.project-droplet[0]
+    terraform taint digitalocean_database_db.database-name
 
     - Terraform plan
 
