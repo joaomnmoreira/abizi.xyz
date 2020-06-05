@@ -14,14 +14,15 @@ Reference
 Commands
 --------
 
-    - Terraform init
+- Terraform init
 
 ::
     
     terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
     terraform init -upgrade
 
-    - Terraform destroy
+
+- Terraform destroy
 
 ::
     
@@ -29,20 +30,20 @@ Commands
     terraform taint digitalocean_droplet.project-droplet[0]
     terraform taint digitalocean_database_db.database-name
 
-    - Terraform plan
+- Terraform plan
 
 ::
     
     terraform plan -var "do_token=${DIGITALOCEAN_ACCESS_TOKEN}" -out=tfplan -input=false
     terraform plan -var "do_token=${DIGITALOCEAN_ACCESS_TOKEN}" -var "spaces_token=${SPACES_ACCESS_TOKEN}" -var "spaces_secret=${SPACES_SECRET_KEY}" -out=tfplan -input=false
 
-    - Terraform apply
+- Terraform apply
 
 ::
     
     terraform apply -input=false tfplan
 
-    - View outputs
+- View outputs
 
 ::
     
