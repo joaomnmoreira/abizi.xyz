@@ -116,6 +116,7 @@
 <li><p><a class="reference external" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">[Gruntwork] How to manage Terraform state</a></p></li>
 <li><p><a class="reference external" href="https://github.com/MattMorgis/digitalocean-spaces-terraform-backend">Terraform S3 Backend</a></p></li>
 <li><p><a class="reference external" href="https://jamesmckay.net/2016/09/sharing-data-between-terraform-configurations/">Sharing data between terraform configurations</a></p></li>
+<li><p><a class="reference external" href="https://www.terraform.io/docs/import/index.html">Terraform import</a></p></li>
 </ul>
 </div>
 <div class="section" id="commands">
@@ -279,6 +280,58 @@
 </td></tr></table></div>
 </div>
 </div>
+<div class="section" id="import-resources">
+<h3>Import Resources<a class="headerlink" href="#import-resources" title="Permalink to this headline">¶</a></h3>
+<p>The current implementation of Terraform import can only import resources into the state. It does not generate configuration. A future version of Terraform will also generate configuration.</p>
+<p>Because of this, prior to running terraform import it is necessary to write manually a resource configuration block for the resource, to which the imported object will be mapped.</p>
+<ol class="arabic simple">
+<li><p>Manually create a resource:</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">main.tf</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-terraform notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">resource</span> <span class="s">&quot;digitalocean_domain&quot; &quot;default&quot;</span> <span class=" -Punctuation">{</span>
+<span class="c1">    #</span>
+<span class=" -Punctuation">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>The name “default” here is local to the module where it is declared and is chosen by the configuration author. This is distinct from any ID issued by the remote system, which may change over time while the resource name remains constant.</p>
+<p>2a. Terraform import (domain example):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>terraform import -var <span class="s2">&quot;do_token=</span><span class="si">${</span><span class="nv">DIGITALOCEAN_ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span> digitalocean_domain.default sportmultimedia.pt
+</pre></div>
+</div>
+<p>2b. Terraform import (firewall example):</p>
+<p>Firewall ID obtained via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doctl compute firewall list
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>terraform import -var <span class="s2">&quot;do_token=</span><span class="si">${</span><span class="nv">DIGITALOCEAN_ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span> digitalocean_firewall.project-firewall 9b3c63d3-86bb-4187-b9f9-d777b80f4674
+</pre></div>
+</div>
+<p>2c. Terraform import (droplet example):</p>
+<p>Firewall ID obtained via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doctl compute droplet list <span class="p">|</span> grep &lt;droplet name&gt;
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>terraform import -var <span class="s2">&quot;do_token=</span><span class="si">${</span><span class="nv">DIGITALOCEAN_ACCESS_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span> digitalocean_droplet.project-droplet <span class="m">116576246</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Edit resource to match:</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">main.tf</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-terraform notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">resource</span> <span class="s">&quot;digitalocean_domain&quot; &quot;default&quot;</span> <span class=" -Punctuation">{</span>
+<span class="na">    name</span> <span class="o">=</span> <span class="s2">&quot;sportmultimedia.pt&quot;</span>
+<span class=" -Punctuation">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -303,7 +356,7 @@
     <div class="footer" margin:auto>
           &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
       <br>
-        Last updated on Jun 05, 2020
+        Last updated on Jun 20, 2020
     </div>
   </body>
 </html>

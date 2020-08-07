@@ -114,6 +114,24 @@
 <h1>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html">https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html</a>
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a></p>
+<p><a class="reference external" href="mailto:jmoreira&#37;&#52;&#48;devbox">jmoreira<span>&#64;</span>devbox</a>:~/projects$ git clone <a class="reference external" href="https://github.com/joaomnmoreira/abizi.xyz.git">https://github.com/joaomnmoreira/abizi.xyz.git</a>
+<a class="reference external" href="mailto:jmoreira&#37;&#52;&#48;devbox">jmoreira<span>&#64;</span>devbox</a>:~/projects$ cd abizi.xyz/
+<a class="reference external" href="mailto:jmoreira&#37;&#52;&#48;devbox">jmoreira<span>&#64;</span>devbox</a>:~/projects/abizi.xyz$ cd docs/
+<a class="reference external" href="mailto:moreira&#37;&#52;&#48;devbox">moreira<span>&#64;</span>devbox</a>:~/projects/abizi.xyz/docs$ source /opt/sportmultimedia/Venv/abizi/bin/activate
+(abizi) <a class="reference external" href="mailto:jmoreira&#37;&#52;&#48;devbox">jmoreira<span>&#64;</span>devbox</a>:~/projects/abizi.xyz/docs$ sphinx-quickstart
+&gt; Separate source and build directories (y/n) [n]: y
+&gt; Project name: Geek Stuff
+&gt; Author name(s): Joao Moreira
+&gt; Project release []: 0.0.1
+&gt; Project language [en]:</p>
+<p># Added extension for GitHubPages in conf.py
+extensions = [‘sphinx.ext.githubpages’]</p>
+<p># Build Documentation (build folder)
+(abizi) <a class="reference external" href="mailto:jmoreira&#37;&#52;&#48;devbox">jmoreira<span>&#64;</span>devbox</a>:~/projects/abizi.xyz/docs$ make html</p>
+<p># Delete Build Folder
+(abizi) <a class="reference external" href="mailto:jmoreira&#37;&#52;&#48;devbox">jmoreira<span>&#64;</span>devbox</a>:~/projects/abizi.xyz/docs$ make clean</p>
 </div>
 <div class="section" id="cheat-sheets">
 <h2>Cheat Sheets<a class="headerlink" href="#cheat-sheets" title="Permalink to this headline">¶</a></h2>
@@ -157,7 +175,7 @@
     <div class="footer" margin:auto>
           &copy;  <a href="mailto://joao.mn.moreira@gmail.com">2020, Joao Moreira</a>
       <br>
-        Last updated on May 20, 2020
+        Last updated on Aug 08, 2020
     </div>
   </body>
 </html>

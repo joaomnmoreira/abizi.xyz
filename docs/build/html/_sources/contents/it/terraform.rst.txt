@@ -10,6 +10,7 @@ Reference
 - `[Gruntwork] How to manage Terraform state <https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa>`__
 - `Terraform S3 Backend <https://github.com/MattMorgis/digitalocean-spaces-terraform-backend>`__
 - `Sharing data between terraform configurations <https://jamesmckay.net/2016/09/sharing-data-between-terraform-configurations/>`__
+- `Terraform import <https://www.terraform.io/docs/import/index.html>`__
 
 Commands
 --------
@@ -128,3 +129,65 @@ In importing working directory:
     resource "digitalocean_droplet" "project-droplet" {
       ...
       tags = ["${data.terraform_remote_state.tags.outputs.env_prod_id}"]
+
+Import Resources
+================
+
+The current implementation of Terraform import can only import resources into the state. It does not generate configuration. A future version of Terraform will also generate configuration.
+
+Because of this, prior to running terraform import it is necessary to write manually a resource configuration block for the resource, to which the imported object will be mapped.
+
+1. Manually create a resource:
+
+.. code-block:: terraform
+    :linenos:
+    :caption: main.tf
+
+    resource "digitalocean_domain" "default" {
+        #
+    }
+
+The name "default" here is local to the module where it is declared and is chosen by the configuration author. This is distinct from any ID issued by the remote system, which may change over time while the resource name remains constant.
+
+2a. Terraform import (domain example):
+
+.. code-block:: bash
+
+    terraform import -var "do_token=${DIGITALOCEAN_ACCESS_TOKEN}" digitalocean_domain.default sportmultimedia.pt
+
+2b. Terraform import (firewall example):
+
+Firewall ID obtained via:
+
+.. code-block:: bash
+
+    doctl compute firewall list
+
+.. code-block:: bash
+
+    terraform import -var "do_token=${DIGITALOCEAN_ACCESS_TOKEN}" digitalocean_firewall.project-firewall 9b3c63d3-86bb-4187-b9f9-d777b80f4674
+
+
+2c. Terraform import (droplet example):
+
+Firewall ID obtained via:
+
+.. code-block:: bash
+
+    doctl compute droplet list | grep <droplet name>
+
+.. code-block:: bash
+
+    terraform import -var "do_token=${DIGITALOCEAN_ACCESS_TOKEN}" digitalocean_droplet.project-droplet 116576246
+
+3. Edit resource to match:
+
+.. code-block:: terraform
+    :linenos:
+    :caption: main.tf
+
+    resource "digitalocean_domain" "default" {
+        name = "sportmultimedia.pt"
+    }
+
+ 
