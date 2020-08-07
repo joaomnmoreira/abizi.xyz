@@ -10,25 +10,36 @@ Install
 https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html
 https://www.sphinx-doc.org/en/master/
 
-jmoreira@devbox:~/projects$ git clone https://github.com/joaomnmoreira/abizi.xyz.git
-jmoreira@devbox:~/projects$ cd abizi.xyz/
-jmoreira@devbox:~/projects/abizi.xyz$ cd docs/
-moreira@devbox:~/projects/abizi.xyz/docs$ source /opt/sportmultimedia/Venv/abizi/bin/activate
-(abizi) jmoreira@devbox:~/projects/abizi.xyz/docs$ sphinx-quickstart
-> Separate source and build directories (y/n) [n]: y
-> Project name: Geek Stuff
-> Author name(s): Joao Moreira
-> Project release []: 0.0.1
-> Project language [en]:
+::
 
-# Added extension for GitHubPages in conf.py
-extensions = ['sphinx.ext.githubpages']
+    jmoreira@devbox:~/projects$ git clone https://github.com/joaomnmoreira/abizi.xyz.git
+    jmoreira@devbox:~/projects$ cd abizi.xyz/
+    jmoreira@devbox:~/projects/abizi.xyz$ cd docs/
+    jmoreira@devbox:~/projects/abizi.xyz/docs$ source /opt/sportmultimedia/Venv/abizi/bin/activate
+    (abizi) jmoreira@devbox:~/projects/abizi.xyz/docs$ sphinx-quickstart
+    > Separate source and build directories (y/n) [n]: y
+    > Project name: Geek Stuff
+    > Author name(s): Joao Moreira
+    > Project release []: 0.0.1
+    > Project language [en]:
 
-# Build Documentation (build folder)
-(abizi) jmoreira@devbox:~/projects/abizi.xyz/docs$ make html
+- Added extension for GitHubPages in conf.py
 
-# Delete Build Folder
-(abizi) jmoreira@devbox:~/projects/abizi.xyz/docs$ make clean
+::
+
+    extensions = ['sphinx.ext.githubpages']
+
+- Build Documentation (build folder)
+
+::
+
+    (abizi) jmoreira@devbox:~/projects/abizi.xyz/docs$ make html
+
+- Delete Build Folder
+
+::
+
+    (abizi) jmoreira@devbox:~/projects/abizi.xyz/docs$ make clean
 
 Cheat Sheets
 ============
