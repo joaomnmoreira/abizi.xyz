@@ -32,6 +32,7 @@ Health & Exercise
    :maxdepth: 2
 
    contents/he/hiit.rst
+   contents/he/uric-acid.rst
 
 Indices and tables
 ==================
