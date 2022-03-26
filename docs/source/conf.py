@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Geek Stuff'
-copyright = '2020, Joao Moreira'
+copyright = '2022, Joao Moreira'
 author = 'Joao Moreira'
 
 # The full version, including alpha/beta/rc tags
