@@ -4,6 +4,18 @@ Drop Acid
 David Perlmutter, MD
 
 ---
+Consequences of Elevated Uric Acid (one parameter of metabolism) 
+---
+- Oxidative Stress
+- Inflamation in the brain
+- Brain shrinkage (cognitive deficits) 
+
+---
+Bad Foods
+---
+- Beer
+
+---
 Blood Tests
 ---
 
