@@ -31,6 +31,7 @@ Health & Exercise
 .. toctree::
    :maxdepth: 2
 
+   contents/he/authors.rst
    contents/he/hiit.rst
    contents/he/uric-acid.rst
 
