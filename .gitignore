@@ -1,0 +1,3 @@
+# The _build directory is generated locally with the command sphinx-build doc _build
+# And allows you to check the content locally but it should not be part of the Git repository.
+_build
