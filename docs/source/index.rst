@@ -9,7 +9,7 @@ Information Technology
 .. toctree::
    :maxdepth: 2
 
-   contents/it/ansible.rst
+   contents/it/devops/ansible.rst
    contents/it/cybersecurity.rst
    contents/it/flutter.rst
    contents/it/hardening.rst
