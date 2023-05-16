@@ -58,5 +58,4 @@ Extensions
 GitHub Pages/Action
 ===================
 
-- https://github.com/marketplace/actions/sphinx-to-github-pages
-- https://coderefinery.github.io/documentation/gh_workflow/#github-pages
+- https://github.com/sphinx-notes/pages
