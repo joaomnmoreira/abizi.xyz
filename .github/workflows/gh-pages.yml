@@ -55,12 +55,15 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -r ./requirements.txt
 
-      - run: mkdocs build
+      - name: Build documentation
+        run: |
+          cd docs  # Assuming your Sphinx documentation is in a 'docs' directory
+          make html  # Use 'make' command to build the documentation
 
-      - name: Deploy
+      - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ steps.deployment.outputs.artifact }}       
+          publish_dir: docs/_build/html  # Path to the built documentation HTML files       
   
