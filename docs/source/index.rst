@@ -10,20 +10,23 @@ Information Technology
    :maxdepth: 2
 
    contents/it/devops/ansible.rst
-   contents/it/cybersecurity.rst
-   contents/it/flutter.rst
-   contents/it/hardening.rst
-   contents/it/hugo.rst
-   contents/it/linux.rst
-   contents/it/kubernetes.rst
-   contents/it/prometheus.rst
-   contents/it/quarkus.rst
-   contents/it/redhat.rst
-   contents/it/strapi.rst
-   contents/it/sphinx.rst
-   contents/it/terraform.rst
-   contents/it/vagrant.rst
-   contents/it/windows.rst
+   contents/it/concepts/cybersecurity.rst
+   contents/it/framework/django.rst
+   contents/it/framework/flutter.rst
+   contents/it/concepts/hardening.rst
+   contents/it/framework/hugo.rst
+   contents/it/os/linux.rst
+   contents/it/devops/kubernetes.rst
+   contents/it/concepts/project-management.rst
+   contents/it/devops/prometheus.rst
+   contents/it/framework/quarkus.rst
+   contents/it/framework/rasa.rst
+   contents/it/os/redhat.rst
+   contents/it/framework/strapi.rst
+   contents/it/framework/sphinx.rst
+   contents/it/devops/terraform.rst
+   contents/it/devops/vagrant.rst
+   contents/it/os/windows.rst
 
 Health & Exercise
 ======================
