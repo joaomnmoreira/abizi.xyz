@@ -55,5 +55,8 @@ Extensions
 
 - `sphinx-copybutton <https://sphinx-copybutton.readthedocs.io/en/latest/>`__
 
-GitHub Pages
-============
+GitHub Pages/Action
+===================
+
+- https://github.com/marketplace/actions/sphinx-to-github-pages
+- https://coderefinery.github.io/documentation/gh_workflow/#github-pages
