@@ -10,28 +10,28 @@ Information Technology
    :maxdepth: 2
 
    Concepts
-      contents/it/concepts/cybersecurity.rst
-      contents/it/concepts/hardening.rst
-      contents/it/concepts/project-management.rst
+   contents/it/concepts/cybersecurity.rst
+   contents/it/concepts/hardening.rst
+   contents/it/concepts/project-management.rst
    DevOps
-      contents/it/devops/ansible.rst
-      contents/it/devops/kubernetes.rst
-      contents/it/devops/prometheus.rst
-      contents/it/devops/terraform.rst
-      contents/it/devops/vagrant.rst
+   contents/it/devops/ansible.rst
+   contents/it/devops/kubernetes.rst
+   contents/it/devops/prometheus.rst
+   contents/it/devops/terraform.rst
+   contents/it/devops/vagrant.rst
    Frameworks
-      contents/it/framework/django.rst
-      contents/it/framework/flutter.rst
-      contents/it/framework/hugo.rst
-      contents/it/framework/quarkus.rst
-      contents/it/framework/rabbitmq.rst
-      contents/it/framework/rasa.rst
-      contents/it/framework/strapi.rst
-      contents/it/framework/sphinx.rst
+   contents/it/framework/django.rst
+   contents/it/framework/flutter.rst
+   contents/it/framework/hugo.rst
+   contents/it/framework/quarkus.rst
+   contents/it/framework/rabbitmq.rst
+   contents/it/framework/rasa.rst
+   contents/it/framework/strapi.rst
+   contents/it/framework/sphinx.rst
    OS
-      contents/it/os/linux.rst
-      contents/it/os/redhat.rst
-      contents/it/os/windows.rst
+   contents/it/os/linux.rst
+   contents/it/os/redhat.rst
+   contents/it/os/windows.rst
 
 Health & Exercise
 ======================
