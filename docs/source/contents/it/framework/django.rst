@@ -112,31 +112,31 @@ In project virtual environment:
 Commands
 --------
 
-- Run celery worker:
+Run celery worker:
 
 ::
 
     celery --app=<app-name> worker -l info --task-events --concurrency=1
 
-- Run celery beat:
+Run celery beat:
 
 ::
 
     celery -A <app-name> beat -l info
 
-- Check registered celery tasks:
+Check registered celery tasks:
 
 ::
 
     celery -A <app-name> inspect registered
 
-- Purge tasks:
+Purge tasks:
 
 ::
 
     celery --app=<app-name> call django_celery_beat.schedulers.DatabaseScheduler.purge
 
-- Call tasks from django commands:
+Call tasks from django commands:
 
 ::
 
@@ -144,7 +144,7 @@ Commands
     python manage.py call_celery_task celery_tasks.tasks.fetch_instagram_posts
     python manage.py call_celery_task celery_tasks.tasks.fetch_instagram_post_metrics
 
-- Flower (http://localhost:5555)
+Flower (http://localhost:5555)
 
 ::
 
