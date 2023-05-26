@@ -12,7 +12,9 @@ Information Technology
    contents/it/concepts/cybersecurity.rst
    contents/it/concepts/hardening.rst
    contents/it/concepts/project-management.rst
+   contents/it/devops/s3fs-fuse_vsftpd.rst
    contents/it/devops/ansible.rst
+   contents/it/devops/docker.rst
    contents/it/devops/kubernetes.rst
    contents/it/devops/prometheus.rst
    contents/it/devops/terraform.rst
