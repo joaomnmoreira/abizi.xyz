@@ -20,6 +20,8 @@ Authors
 Resources
 =========
 
-`Examine <<https://examine.com>`__
+`Examine <https://examine.com>`__
+
 `Functional Range Systems <https://functionalanatomyseminars.com/>`__
+
 `Precision Nutrition <https://www.precisionnutrition.com/>`__
