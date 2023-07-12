@@ -32,7 +32,7 @@ Information Technology
    contents/it/os/windows.rst
 
 Health & Exercise
-======================
+=================
 
 .. toctree::
    :maxdepth: 2
