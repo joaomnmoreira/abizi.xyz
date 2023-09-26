@@ -22,6 +22,7 @@ Information Technology
    contents/it/strapi.rst
    contents/it/sphinx.rst
    contents/it/terraform.rst
+   contents/it/tools.rst
    contents/it/vagrant.rst
    contents/it/windows.rst
 
