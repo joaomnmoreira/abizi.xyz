@@ -55,5 +55,7 @@ Extensions
 
 - `sphinx-copybutton <https://sphinx-copybutton.readthedocs.io/en/latest/>`__
 
-GitHub Pages
-============
+GitHub Pages/Action
+===================
+
+- https://github.com/sphinx-notes/pages
