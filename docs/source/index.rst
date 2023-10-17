@@ -9,16 +9,9 @@ Information Technology
 .. toctree::
    :maxdepth: 2
 
-   Concepts
-   --------
-
-   .. toctree::
-      :maxdepth: 2
-
-      contents/it/concepts/cybersecurity.rst
-      contents/it/concepts/hardening.rst
-      contents/it/concepts/project-management.rst
-
+   contents/it/concepts/cybersecurity.rst
+   contents/it/concepts/hardening.rst
+   contents/it/concepts/project-management.rst
    contents/it/devops/ansible.rst
    contents/it/devops/docker.rst
    contents/it/devops/kubernetes.rst
