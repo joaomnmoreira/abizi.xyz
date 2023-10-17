@@ -13,6 +13,7 @@ Consequences of Elevated Uric Acid (one parameter of metabolism)
 
 Bad Foods
 ---------
+
 - Beer
 
 Blood Tests

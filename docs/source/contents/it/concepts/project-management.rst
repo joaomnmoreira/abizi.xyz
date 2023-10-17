@@ -1,3 +1,8 @@
+=========
+Hardening
+=========
+
+.. highlight:: console
 
 Openness, trust, and autonomy are emerging as the cultural currency for companies who want to attract the best people and get the most out of them.
 
@@ -5,7 +10,8 @@ Agile is a cultural value, and teams should be empowered to work how they best s
 
 Call it “faux,” “dark,” or “cargo cult,” these agile subversions often lead to situations that fly in the face of the Manifesto’s intentions—micromanagement, burnout-rate pacing, lack of delivery, and adherence to process over principles register as the most egregious—even if their practitioners come with a certificate.
 
-### Agile Frameworks1
+Agile Frameworks
+================
 
 Favored by software development teams:
 - Scrum
@@ -15,8 +21,10 @@ Darling among service-oriented teams like IT or human resources:
 - Kanban
 - Lean
 
-### Resources
+References
+==========
+
 - [Agile Principles] http://agilemanifesto.org/
 - [Manifesto for Half-Arsed Agile Software Development] https://www.halfarsedagilemanifesto.org/
 - [Atlassian Agile] https://www.atlassian.com/agile
-- 
+
