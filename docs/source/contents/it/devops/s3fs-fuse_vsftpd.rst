@@ -1,7 +1,7 @@
 
-====================================
-vsftp FTP server backed by s3 bucket
-====================================
+=================
+vsftp + s3 bucket
+=================
 
 .. highlight:: console
 
@@ -30,7 +30,7 @@ s3fs-fuse Base
 .. code-block:: yaml
 
     ---
-    - name: Autoclean, autoremove, update cache, install FFMPEG + OBSPROJECT base packages
+    - name: Autoclean, autoremove, update cache, install packages
     apt:
         force_apt_get: yes
         autoclean: yes

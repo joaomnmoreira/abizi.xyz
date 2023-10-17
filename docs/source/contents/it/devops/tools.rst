@@ -38,7 +38,7 @@ Here are some of the development tools you might find useful:
 
 - **Additional Tools:**
     - `LocalTunnel <https://github.com/localtunnel>`_: Expose local web servers to the internet.
-        - `LocalTunnel Usage <localtunnel.rst>`_
+        - `LocalTunnel Usage <localtunnel.html>`_
     - `Telebit <https://telebit.cloud>`_: Secure, globally accessible tunnels.
 
 These are essential tools for managing infrastructure, development, and project management. You can click on the provided links to learn more about each tool.
