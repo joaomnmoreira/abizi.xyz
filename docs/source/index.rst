@@ -20,6 +20,7 @@ Information Technology
    contents/it/devops/prometheus.rst
    contents/it/devops/s3fs-fuse_vsftpd.rst
    contents/it/devops/terraform.rst
+   contents/it/devops/tunnelmole.rst
    contents/it/devops/tools.rst
    contents/it/devops/vagrant.rst
    contents/it/framework/django.rst
