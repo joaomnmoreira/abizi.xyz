@@ -40,6 +40,7 @@ Here are some of the development tools you might find useful:
 https://dashboard.ngrok.com/cloud-edge/domains
     - `Ngrok <https://ngrok.com>`_: Expose local web servers to the internet.
         - Free use with a custom ngrok subdomain
+        - `Ngrok Usage <ngrok.html>`_
     - `LocalTunnel <https://github.com/localtunnel>`_: Expose local web servers to the internet.
         - `LocalTunnel Usage <localtunnel.html>`_
     - `Tunnelmole <https://github.com/robbie-cahill/tunnelmole-client/>`_: Expose local web servers to the internet.
