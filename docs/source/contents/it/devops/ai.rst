@@ -41,6 +41,7 @@ Large Language Models and ChatGPT
 
 - Week #1
     - `Class <https://learning.oreilly.com/live-events/large-language-models-and-chatgpt-in-3-weeks/0636920090988/>`__
+    - `Slides <../_static/llm_chatgpt_week1.pdf>`_
     - :download:`Slides <../_files/llm_chatgpt_week1.pdf>`
     
 
