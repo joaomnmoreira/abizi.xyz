@@ -14,7 +14,7 @@ Reference
 Terms
 -----
 
-.. image:: ../files/kubernetes_terms.png
+.. image:: ../_files/kubernetes_terms.png
   :width: 800
   :alt: Kubernetes Terms
 
