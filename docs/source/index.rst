@@ -24,6 +24,7 @@ Information Technology
    contents/it/devops/ai.rst
    contents/it/devops/ansible.rst
    contents/it/devops/docker.rst
+   contents/it/devops/grafana.rst
    contents/it/devops/kubernetes.rst
    contents/it/devops/localtunnel.rst
    contents/it/devops/prefect.rst
