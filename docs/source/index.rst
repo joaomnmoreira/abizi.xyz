@@ -3,6 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+Self Development
+================
+
+.. toctree::
+   :maxdepth: 2
+
+   contents/self-development/skills.rst
+
+
 Information Technology
 ======================
 
