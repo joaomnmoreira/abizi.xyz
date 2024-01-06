@@ -4,6 +4,12 @@ Artificial Intelligence
 
 .. highlight:: console
 
+Personas
+========
+
+- `Giada Pistilli <https://www.giadapistilli.com/>`__
+
+
 Models Evaluations
 ==================
 
@@ -48,3 +54,9 @@ Large Language Models and ChatGPT
 .. image:: ../_files/tradeoffs_llms.png
   :width: 800
   :alt: Tradeoffs Between Different LLMs
+
+Hands on NLP with Transformers
+------------------------------
+
+- `Class <https://learning.oreilly.com/live-events/hands-on-nlp-with-transformers/0636920063159/>`__
+- `Github repository <https://github.com/sinanuozdemir/oreilly-hands-on-transformers>`__
