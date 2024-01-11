@@ -19,6 +19,7 @@ Information Technology
    :maxdepth: 2
 
    contents/it/concepts/cybersecurity.rst
+   contents/it/concepts/development.rst
    contents/it/concepts/hardening.rst
    contents/it/concepts/project-management.rst
    contents/it/devops/ai.rst
