@@ -45,11 +45,21 @@ O'Reilly Courses
 Large Language Models and ChatGPT
 ---------------------------------
 
-- Week #1
+- Resources
     - `Class <https://learning.oreilly.com/live-events/large-language-models-and-chatgpt-in-3-weeks/0636920090988/>`__
-    - `Slides <../_files/llm_chatgpt_week1.pdf>`_
-    - :download:`Slides <../_files/llm_chatgpt_week1.pdf>`
-    
+    https://github.com/sinanuozdemir/large-language-models-and-chatgpt-in-three-weeks
+    - :download:`Slides Week #1 <../_files/llm_chatgpt_week1.pdf>`
+    - :download:`Slides Week #2 <../_files/llm_chatgpt_week2.pdf>`
+
+- Recommendations
+    * temperature:
+    ** creativity: 1;
+    ** safe creativity: 0,6;
+    ** classification: 0,1 (near 0).
+
+- Use Cases
+    * BERT: Recommendation systems (EBAY use case);
+    * 
 
 .. image:: ../_files/tradeoffs_llms.png
   :width: 800
