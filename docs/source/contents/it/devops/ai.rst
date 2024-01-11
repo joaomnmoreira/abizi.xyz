@@ -8,7 +8,7 @@ Personas
 ========
 
 - `Giada Pistilli <https://www.giadapistilli.com/>`__
-
+- `Sinan Ozdemir <https://sinanozdemir.ai/>`__
 
 Models Evaluations
 ==================
