@@ -1,3 +1,25 @@
+Saliency-aware Video Cropping
+AutoFlip: An Open Source Framework for Intelligent Video Reframing
+
+https://reframer.ai/
+https://www.horatio.cloud/
+https://2short.ai/
+https://glossai.co/
+https://www.editair.app/
+https://klap.app/
+https://vidyo.ai/
+https://nablet.com/shrynk
+https://roboflow.com/
+
+https://pacavaca.medium.com/poor-mans-intelligent-reframing-for-gopro-videos-c9bb489512db
+https://gist.github.com/bsod90/fbeca5fd3d021e43aead278d176f07fb
+
+https://medium.com/@maciek99/unlocking-the-power-of-yolov8-in-python-auto-reframe-aka-smart-video-crop-c30644c34481
+
+
+https://medium.com/@issam.jebnouni/yolov8-object-detection-for-football-543d5e704b57
+https://github.com/0xrushi/Soccer-Player-Tracking-YoloV5
+
 ==================
 Mediapipe (google)
 ==================
