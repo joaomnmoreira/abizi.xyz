@@ -35,6 +35,7 @@ Information Technology
    contents/it/devops/tunnelmole.rst
    contents/it/devops/tools.rst
    contents/it/devops/vagrant.rst
+   contents/it/devops/wireguard.rst
    contents/it/framework/django.rst
    contents/it/framework/flutter.rst
    contents/it/framework/hugo.rst
