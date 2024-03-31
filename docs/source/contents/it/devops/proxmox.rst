@@ -4,15 +4,12 @@ Proxmox
 
 .. highlight:: console
 
-Reference
----------
-
-- `[Gruntwork] How to manage Terraform state <https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa>`__
-
 Post Install Configuration
-==========================
+--------------------------
 
-- `Post Install Configuration <https://www.youtube.com/watch?v=R0Zn0bdPwcw>`__
+- References:
+
+`Post Install Configuration <https://www.youtube.com/watch?v=R0Zn0bdPwcw>`__
 
 1. In 'Datacenter' - 'Storage', remove 'local-lvm';
 2. In 'Node' - 'Shell', enter commands:
@@ -48,8 +45,46 @@ Post Install Configuration
     
     systemctl restart pveproxy.service
 
+5. Change IP configuration:
+
+- Enter via SSH (putty):
+
+::
+    
+    cd /etc/network
+    joe interfaces
+
+- In editor, change from accordingly:
+
+::
+    
+    auto vmbr0
+        iface vmbr0 inet static
+        address 192.168.1.240/24
+        gateway 192.168.1.1
+        bridge-ports enp0s31f6
+        bridge-stp off
+        bridge-fd 0
+    
+Ou,
+
+::
+    
+    auto vmbr0
+        iface vmbr0 inet dhcp
+        bridge-ports enp0s31f6
+        bridge-stp off
+        bridge-fd 0
+
+- Save
+
+::
+    
+    systemctl restart pveproxy.service
+
+
 Storage Configuration
-=====================
+---------------------
 
 - `Storage Configuration <https://www.youtube.com/watch?v=HqOGeqT-SCA>`__
 
