@@ -25,13 +25,15 @@ Post Install Configuration
 
 3. In 'Datacenter' - 'Storage', edit 'local' and select all options in content;
 4. Configure Repositories:
-4.1. In 'Node' - 'Updates' - 'Repositories', select repository ENTERPRISE and PVE-ENTERPRISE and select DISABLE;
-4.2. In. 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
-4.3. In 'Node' - 'Updates', click REFRESH and then UPGRADE;
-4.4. In GUI select REBOOT.
+
+    4.1. In 'Node' - 'Updates' - 'Repositories', select repository ENTERPRISE and PVE-ENTERPRISE and select DISABLE;
+    4.2. In. 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
+    4.3. In 'Node' - 'Updates', click REFRESH and then UPGRADE;
+    4.4. In GUI select REBOOT.
 
 5. Disable 'Enterprise Pop-up':
-5.1. Enter via SSH (putty):
+
+    5.1. Enter via SSH (putty):
 
 ::
     
