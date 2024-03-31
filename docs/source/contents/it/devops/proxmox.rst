@@ -27,11 +27,8 @@ Post Install Configuration
 4. Configure Repositories:
 
     4.1. In 'Node' - 'Updates' - 'Repositories', select repository ENTERPRISE and PVE-ENTERPRISE and select DISABLE;
-
     4.2. In. 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
-
     4.3. In 'Node' - 'Updates', click REFRESH and then UPGRADE;
-
     4.4. In GUI select REBOOT.
 
 5. Disable 'Enterprise Pop-up':
@@ -44,9 +41,9 @@ Post Install Configuration
     cp proxmoxlib.js proxmoxlib.js.bak
     joe proxmoxlib.js
 
-    5.2. search for 'No valid subscription' and change to: void({ //Ext.Msg.show({
-    
-    5.2.1. Save
+
+    5.2. In joe, search for 'No valid subscription' and change to: void({ //Ext.Msg.show({
+    5.3. Save
 
 ::
     
@@ -65,7 +62,7 @@ Storage Configuration
     
     zfs create ZFS01/Data01 -a mountpoint=zfsdata
 
-#. Create Directory in ZFS Partition:
+4. Create Directory in ZFS Partition:
 
 Select 'Datacenter' - 'Storage' - 'CREATE DIRECTORY'
 
