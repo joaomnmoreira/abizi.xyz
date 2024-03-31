@@ -58,7 +58,7 @@ O'Reilly Courses
 Large Language Models and ChatGPT
 ---------------------------------
 
-- Resources
+- Resources:
     - `Class Video <https://learning.oreilly.com/live-events/large-language-models-and-chatgpt-in-3-weeks/0636920090988/>`__
     - `Github Repo <https://github.com/sinanuozdemir/large-language-models-and-chatgpt-in-three-weeks>`__
     - :download:`Slides Week #1 <../_files/llm_chatgpt_week1.pdf>`
@@ -96,10 +96,27 @@ Introduction to Transformer Models for NLP: Using BERT, GPT, and More to Solve M
 
 - `Class <https://learning.oreilly.com/course/introduction-to-transformer/9780137923717/>`__
 
+Hugging Face in 4 Hours
+-----------------------
+
+- Resources:
+  - `Class <https://learning.oreilly.com/live-events/hugging-face-in-4-hours/0790145056533/0790145056525/>`__
+  - `Github Repo <https://github.com/sinanuozdemir/oreilly-huggingface-tour>`__  
+  - :download:`Slides Week #2 <../_files/huggingfacein4hours.pdf>`
+
 RAG
 ==================
 
 - `Generative AI use case: Retrieval Augmented Generation (RAG) <https://www.youtube.com/playlist?list=PL-pTHQz4RcBbz78Z5QXsZhe9rHuCs1Jw->`__
 - `Building Production-Ready RAG Applications: Jerry Liu <https://www.youtube.com/watch?v=TRjq7t2Ms5I>`__
 
+AutoGPT
+-------
 
+AutoGTP Forge
+
+- `AutoGPT Forge Quickstart <https://github.com/Significant-Gravitas/AutoGPT/blob/master/QUICKSTART.md>`__
+- `AutoGPT Forge <https://aiedge.medium.com/autogpt-forge-e3de53cc58ec>`__
+- `AutoGPT Forge Research Assistant <https://lablab.ai/t/autogpt-tutorial-creating-a-research-assistant-with-auto-gpt-forge>`__
+
+https://www.gptsportswriter.com/
