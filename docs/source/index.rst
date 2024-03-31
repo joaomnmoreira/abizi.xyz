@@ -30,6 +30,7 @@ Information Technology
    contents/it/devops/localtunnel.rst
    contents/it/devops/prefect.rst
    contents/it/devops/prometheus.rst
+   contents/it/devops/proxmox.rst
    contents/it/devops/s3fs-fuse_vsftpd.rst
    contents/it/devops/terraform.rst
    contents/it/devops/tunnelmole.rst
