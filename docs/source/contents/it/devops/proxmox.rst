@@ -26,14 +26,14 @@ Post Install Configuration
 3. In 'Datacenter' - 'Storage', edit 'local' and select all options in content;
 4. Configure Repositories:
 
-    4.1. In 'Node' - 'Updates' - 'Repositories', select repository ENTERPRISE and PVE-ENTERPRISE and select DISABLE;
-    4.2. In. 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
-    4.3. In 'Node' - 'Updates', click REFRESH and then UPGRADE;
-    4.4. In GUI select REBOOT.
+    - In 'Node' - 'Updates' - 'Repositories', select repository ENTERPRISE and PVE-ENTERPRISE and select DISABLE;
+    - In. 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
+    - In 'Node' - 'Updates', click REFRESH and then UPGRADE;
+    - In GUI select REBOOT.
 
 5. Disable 'Enterprise Pop-up':
 
-    5.1. Enter via SSH (putty):
+    - Enter via SSH (putty):
 
 ::
     
@@ -41,9 +41,9 @@ Post Install Configuration
     cp proxmoxlib.js proxmoxlib.js.bak
     joe proxmoxlib.js
 
-
-    5.2. In joe, search for 'No valid subscription' and change to: void({ //Ext.Msg.show({
-    5.3. Save
+:
+    - In joe, search for 'No valid subscription' and change to: void({ //Ext.Msg.show({
+    - Save
 
 ::
     
