@@ -12,6 +12,31 @@ Reference
 - `Sharing data between terraform configurations <https://jamesmckay.net/2016/09/sharing-data-between-terraform-configurations/>`__
 - `Terraform import <https://www.terraform.io/docs/import/index.html>`__
 
+Install
+-------
+
+- `Terraform installation <https://developer.hashicorp.com/terraform/install>`__
+- `Terraform releases notes <https://github.com/hashicorp/terraform/releases>`__
+- `Terraform providers <https://registry.terraform.io/browse/providers>`__
+
+::
+    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+    sudo apt update && sudo apt install terraform
+    
+- Know which versions are available for a certain package:
+
+::
+    apt list --all-versions terraform
+
+- Install a specific version of a package:
+
+::
+    sudo apt install terraform=0.14.11
+
+- `DigitalOcean Provider <https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs>`__
+
+
 Commands
 --------
 
@@ -20,6 +45,7 @@ Commands
 ::
     
     terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
+    terraform init -upgrade -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
     terraform init -upgrade
 
 
