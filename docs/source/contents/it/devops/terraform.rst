@@ -24,18 +24,18 @@ Install
     echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
     sudo apt update && sudo apt install terraform
     
-- Know which versions are available for a certain package:
+- Know which versions are available for a certain package
 
 ::
     apt list --all-versions terraform
 
-- Install a specific version of a package:
+- Install a specific version of a package
 
 ::
-    sudo apt install terraform=0.14.11
+    sudo apt install terraform=1.7.5-1
+
 
 - `DigitalOcean Provider <https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs>`__
-
 
 Commands
 --------
@@ -44,8 +44,8 @@ Commands
 
 ::
     
-    terraform init -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
-    terraform init -upgrade -reconfigure -get-plugins=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
+    terraform init -reconfigure -get=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
+    terraform init -upgrade -reconfigure -get=true -backend-config=access_key=$SPACES_ACCESS_TOKEN -backend-config=secret_key=$SPACES_SECRET_KEY
     terraform init -upgrade
 
 
@@ -76,6 +76,11 @@ Commands
     
     terraform output
 
+- Know providers dependencies
+
+::
+    terraform providers
+
 .. _s3backend-anchor:
 
 Configure S3 backend
@@ -85,19 +90,45 @@ Configure S3 backend
     :linenos:
 
     terraform {
-        
       backend "s3" {
-      endpoint   = "https://<s3_endpoint>"
-      bucket     = "<s3_bucket_name>"
+        endpoint   = "https://<s3_endpoint>"
+        bucket     = "<s3_bucket_name>"
 
-      # whatever directory/file name (*.tfstate) structure desired
-      key        = "terraform/global/tags/terraform.tfstate"
+        # whatever directory/file name (*.tfstate) structure desired
+        key        = "terraform/global/tags/terraform.tfstate"
 
-      skip_credentials_validation = true        # Needed for non AWS S3
-      skip_metadata_api_check     = true        # Needed for non AWS S3
-      region                      = "eu-west-2" # Needed for non AWS S3. Basically this gets ignored, but field is needed
+        skip_credentials_validation = true        # Needed for non AWS S3
+        skip_metadata_api_check     = true        # Needed for non AWS S3
+        region                      = "eu-west-2" # Needed for non AWS S3. Basically this gets ignored, but field is needed
       }
     }
+
+Or, recent terraform versions '>=v.1.6.6':
+
+.. code-block:: terraform
+    :linenos:
+    :caption: main.tf
+
+    terraform {
+      backend "s3" {
+        endpoints = {
+          s3 = "https://<s3_endpoint>"
+        }
+        
+        bucket   = "<s3_bucket_name>"
+
+        # whatever directory/file name (*.tfstate) structure desired
+        key = "terraform/global/tags/terraform.tfstate"
+
+        skip_credentials_validation = true        # Needed for non AWS S3
+        skip_requesting_account_id  = true        # Needed for non AWS S3
+        skip_metadata_api_check     = true        # Needed for non AWS S3
+        skip_s3_checksum            = true        # Needed for non AWS S3 [https://github.com/hashicorp/terraform/issues/34086]
+        region                      = "eu-west-2" # Needed for non AWS S3. Basically this gets ignored, but field is needed
+      }
+    }
+
+
 
 Acess S3 remote state
 =====================
@@ -140,7 +171,7 @@ In importing working directory:
         config = {
         endpoint   = "https://<s3_endpoint>"
         bucket     = "<s3_bucket_name>"
-        # Path to the file we wnat to retrieve data
+        # Path to the file we want to retrieve data
         key      = "terraform/global/tags/terraform.tfstate"
 
         shared_credentials_file = "/etc/boto.cfg"
@@ -155,6 +186,34 @@ In importing working directory:
     resource "digitalocean_droplet" "project-droplet" {
       ...
       tags = ["${data.terraform_remote_state.tags.outputs.env_prod_id}"]
+
+Or, recent terraform versions '>=v.1.6.6':
+
+.. code-block:: terraform
+    :linenos:
+    :caption: main.tf
+
+    data "terraform_remote_state" "tags" {
+    backend = "s3"
+    config = {
+        endpoints = {
+        s3 = lookup(var.s3, "ENDPOINT")
+        }
+
+        bucket   = lookup(var.s3, "BUCKET")
+
+        # Path to the file we want to retrieve data
+        key      = "terraform/eco-b24/webb24/terraform.tfstate"
+
+        shared_credentials_files = [lookup(var.s3, "CRED_FILE")]
+        profile                  = lookup(var.s3, "PROFILE")
+
+        skip_credentials_validation = true        # Needed for non AWS S3
+        skip_requesting_account_id  = true        # Needed for non AWS S3
+        skip_metadata_api_check     = true        # Needed for non AWS S3
+        region                      = "eu-west-2" # Needed for non AWS S3. Basically this gets ignored, but field is needed
+        }
+    }
 
 Import Resources
 ================
