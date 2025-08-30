@@ -8,8 +8,8 @@ services:
       - PUID=1002
       - PGID=1002
       - TZ=Europe/Lisbon
-      - USER=jmoreira
-      - PASS=H2dgZGpGTsnD7NdQ
+      - USER=<username>
+      - PASS=<password>
       - TRANSMISSION_DOWNLOAD_DIR=/downloads/complete
       - TRANSMISSION_INCOMPLETE_DIR=/downloads/incomplete
       - TRANSMISSION_WATCH_DIR=/watch
