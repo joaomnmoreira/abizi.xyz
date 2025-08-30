@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+      - USER=jmoreira
+      - PASS=H2dgZGpGTsnD7NdQ
+      - TRANSMISSION_DOWNLOAD_DIR=/downloads/complete
+      - TRANSMISSION_INCOMPLETE_DIR=/downloads/incomplete
+      - TRANSMISSION_WATCH_DIR=/watch
+    volumes:
+      - /docker/transmission/data:/config
+      - /mnt/nas-library/MULTIMEDIA/Downloads:/downloads
+      - /docker/transmission/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    networks:
+      - media-network
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+    volumes:
+      - /docker/prowlarr/config:/config
+    ports:
+      - 9696:9696
+    networks:
+      - media-network
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+    volumes:
+      - /mnt/nas-library/MULTIMEDIA/movies:/movies:rw
+      - /docker/radarr/config:/config:rw
+      # Shared downloads folder with Transmission
+      - /mnt/nas-library/MULTIMEDIA/Downloads:/downloads:rw
+    ports:
+      - 7878:7878
+    networks:
+      - media-network
+    depends_on:
+      - transmission
+      - prowlarr
+    healthcheck:
+      test: curl -f http://localhost:7878/ || exit 1      
+    restart: on-failure:5
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+    volumes:
+      - /docker/bazarr/config:/config
+      # Shared movies folder with Radarr (now on NAS)
+      - /mnt/nas-library/MULTIMEDIA/movies:/movies:rw
+    ports:
+      - 6767:6767
+    networks:
+      - media-network
+    depends_on:
+      - radarr
+    restart: unless-stopped
+
+networks:
+  media-network:
+    driver: bridge
