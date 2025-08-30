@@ -58,7 +58,7 @@ The media automation stack consists of:
 2. **Deploy Stack**:
    - Go to **Stacks** → **Add stack**
    - Name: ``media-automation``
-   - Copy content from :doc:`../configs/docker-compose/media-automation-stack.yml`
+   - Copy content from `media-automation-stack.yml <../configs/docker-compose/media-automation-stack.yml>`__
    - Click **Deploy the stack**
 
 **Option 2: Via Command Line**
@@ -184,4 +184,4 @@ Key metrics to monitor:
 
 **Configuration Files**:
 
-- :doc:`../configs/docker-compose/media-automation-stack.yml` - Complete Docker Compose stack configuration
+- `media-automation-stack.yml <../configs/docker-compose/media-automation-stack.yml>`__ - Complete Docker Compose stack configuration

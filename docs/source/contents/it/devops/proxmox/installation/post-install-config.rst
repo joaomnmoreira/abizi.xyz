@@ -36,7 +36,7 @@ Or run the local script:
 
 **Configuration Files Available**:
 
-- :doc:`../configs/scripts/post-install-setup.sh` - Automated setup script
+- `post-install-setup.sh <../configs/scripts/post-install-setup.sh>`__ - Automated setup script
 
 ⚙️ Manual Configuration Steps
 =============================
