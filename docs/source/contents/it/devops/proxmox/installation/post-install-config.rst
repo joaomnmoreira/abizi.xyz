@@ -12,7 +12,6 @@ Essential configuration steps after fresh Proxmox VE installation.
 **Community Scripts (Recommended)**:
 
 - `Proxmox VE Post Install <https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install>`__ - Automated post-install configuration
-- `Proxmox VE Docker <https://community-scripts.github.io/ProxmoxVE/scripts?id=docker>`__ - Docker setup for LXC containers
 
 **Video Tutorials**:
 
@@ -20,6 +19,8 @@ Essential configuration steps after fresh Proxmox VE installation.
 - `Don't run Proxmox without these settings! <https://www.youtube.com/watch?v=VAJWUZ3sTSI>`__ - Essential configuration tips
 
 **Custom Automated Script**:
+
+Use the provided post-install automation script:
 
 .. code-block:: bash
 
@@ -32,6 +33,10 @@ Or run the local script:
 
    chmod +x configs/scripts/post-install-setup.sh
    ./configs/scripts/post-install-setup.sh
+
+**Configuration Files Available**:
+
+- :doc:`../configs/scripts/post-install-setup.sh` - Automated setup script
 
 ⚙️ Manual Configuration Steps
 =============================

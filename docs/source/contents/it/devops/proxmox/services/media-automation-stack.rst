@@ -6,6 +6,17 @@ Media Automation Stack
 
 Complete media automation solution using Docker containers for downloading, organizing, and managing media content.
 
+⚠️ Prerequisites
+================
+
+**Docker Setup Required:**
+
+Before deploying this stack, ensure Docker is properly configured in your Proxmox environment:
+
+- `Proxmox VE Docker <https://community-scripts.github.io/ProxmoxVE/scripts?id=docker>`__ - Docker setup for LXC containers
+
+This script will install Docker, Docker Compose, and Portainer for container management.
+
 📋 Stack Overview
 ================
 
@@ -38,6 +49,20 @@ The media automation stack consists of:
 🚀 Quick Deployment
 ==================
 
+**Option 1: Via Portainer (Recommended)**
+
+1. **Access Portainer**:
+   - Navigate to ``http://proxmox-ip:9000``
+   - Login with your Portainer credentials
+
+2. **Deploy Stack**:
+   - Go to **Stacks** → **Add stack**
+   - Name: ``media-automation``
+   - Copy content from :doc:`../configs/docker-compose/media-automation-stack.yml`
+   - Click **Deploy the stack**
+
+**Option 2: Via Command Line**
+
 1. **Deploy Stack**:
 
    .. code-block:: bash
@@ -51,12 +76,12 @@ The media automation stack consists of:
 
       docker-compose ps
 
-3. **Access Web Interfaces**:
+**Access Web Interfaces**:
 
-   - Transmission: ``http://proxmox-ip:9091``
-   - Prowlarr: ``http://proxmox-ip:9696``
-   - Radarr: ``http://proxmox-ip:7878``
-   - Bazarr: ``http://proxmox-ip:6767``
+- Transmission: ``http://proxmox-ip:9091``
+- Prowlarr: ``http://proxmox-ip:9696``
+- Radarr: ``http://proxmox-ip:7878``
+- Bazarr: ``http://proxmox-ip:6767``
 
 📁 Directory Structure
 =====================
@@ -157,4 +182,6 @@ Key metrics to monitor:
 - Service health and uptime
 - Failed downloads and errors
 
-For detailed configuration file, see: ``configs/docker-compose/media-automation-stack.yml``
+**Configuration Files**:
+
+- :doc:`../configs/docker-compose/media-automation-stack.yml` - Complete Docker Compose stack configuration
