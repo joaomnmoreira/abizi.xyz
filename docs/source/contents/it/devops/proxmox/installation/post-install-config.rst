@@ -36,7 +36,12 @@ Or run the local script:
 
 **Configuration Files Available**:
 
-- `post-install-setup.sh <../configs/scripts/post-install-setup.sh>`__ - Automated setup script
+The complete automated setup script:
+
+.. literalinclude:: ../configs/scripts/post-install-setup.sh
+   :language: bash
+   :caption: post-install-setup.sh
+   :linenos:
 
 ⚙️ Manual Configuration Steps
 =============================
