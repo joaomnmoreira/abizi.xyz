@@ -72,6 +72,7 @@ jobs:
         with:
           documentation_path: docs/source
           requirements_path: ./requirements.txt
+          python_version: '3.11'
           cache: true
 
 #      - name: Deploy documentation
