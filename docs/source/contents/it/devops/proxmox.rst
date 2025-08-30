@@ -9,12 +9,242 @@ Baremetal Installation
 
 - `HomeLab on a Slab - Mobile all-in-one ProxMox Homelab <https://www.youtube.com/watch?v=RD7hV0A2NOc>`__
 
-Post Install Configuration
---------------------------
+Post Install Configuration [NEW]
+--------------------------------
+
+- `Proxmox VE Post Install <https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install>`__
+- `Proxmox VE Docker <https://community-scripts.github.io/ProxmoxVE/scripts?id=docker>`__
+
+# Media Automation Stack Configuration Guide
+
+## Docker Compose Stack
+
+```yaml
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+      - USER=jmoreira
+      - PASS=H2dgZGpGTsnD7NdQ
+      - TRANSMISSION_DOWNLOAD_DIR=/downloads/complete
+      - TRANSMISSION_INCOMPLETE_DIR=/downloads/incomplete
+      - TRANSMISSION_WATCH_DIR=/watch
+    volumes:
+      - /docker/transmission/data:/config
+      - /mnt/nas-library/MULTIMEDIA/Downloads:/downloads
+      - /docker/transmission/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    networks:
+      - media-network
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+    volumes:
+      - /docker/prowlarr/config:/config
+    ports:
+      - 9696:9696
+    networks:
+      - media-network
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+    volumes:
+      - /mnt/nas-library/MULTIMEDIA/movies:/movies:rw
+      - /docker/radarr/config:/config:rw
+      # Shared downloads folder with Transmission
+      - /mnt/nas-library/MULTIMEDIA/Downloads:/downloads:rw
+    ports:
+      - 7878:7878
+    networks:
+      - media-network
+    depends_on:
+      - transmission
+      - prowlarr
+    healthcheck:
+      test: curl -f http://localhost:7878/ || exit 1      
+    restart: on-failure:5
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Lisbon
+    volumes:
+      - /docker/bazarr/config:/config
+      # Shared movies folder with Radarr (now on NAS)
+      - /mnt/nas-library/MULTIMEDIA/movies:/movies:rw
+    ports:
+      - 6767:6767
+    networks:
+      - media-network
+    depends_on:
+      - radarr
+    restart: unless-stopped
+
+networks:
+  media-network:
+    driver: bridge
+```
+
+## Service References and Documentation
+
+### Radarr (Movie Management)
+- [Docker Hub - LinuxServer Radarr](https://hub.docker.com/r/linuxserver/radarr)
+- [Guide to Radarr - Rapidseedbox](https://www.rapidseedbox.com/blog/guide-to-radarr)
+
+### Transmission (Download Client)
+- [Docker Hub - LinuxServer Transmission](https://hub.docker.com/r/linuxserver/transmission)
+
+### Prowlarr (Indexer Manager)
+- [Docker Hub - LinuxServer Prowlarr](https://hub.docker.com/r/linuxserver/prowlarr)
+- [Prowlarr GitHub Repository](https://github.com/Prowlarr/Prowlarr)
+
+### Bazarr (Subtitle Management)
+- [Bazarr Setup Guide - Official Wiki](https://wiki.bazarr.media/Getting-Started/Setup-Guide/)
+
+## Complete Workflow
+
+Your full automated media pipeline:
+
+1. **Add Movie** → Radarr web interface
+2. **Search Indexers** → Prowlarr provides indexer sources to Radarr
+3. **Download Movie** → Radarr sends torrent to Transmission
+4. **Process Download** → Radarr moves completed file to movies folder
+5. **Download Subtitles** → Bazarr automatically finds and downloads subtitles
+6. **Ready to Watch** → Movie with subtitles available in movies folder
+
+## Required Directory Setup
+
+Create all required directories:
+
+```bash
+
+# Local Docker configuration directories (on container filesystem)
+adduser arr-stack --uid 1002 --disabled-password
+sudo mkdir -p /docker/{transmission/{data,watch},prowlarr/config,radarr/config,bazarr/config}
+
+# Local Docker configuration directories (on container filesystem from host PROXMOX)
+pct mount 23001
+mounted CT 23001 in '/var/lib/lxc/23001/rootfs'
+chown -R 1002:1002 /var/lib/lxc/23001/rootfs/docker/
+pct unmount 23001
+
+# Media directories (on NAS via iSCSI mount)
+mkdir -p /mnt/nas-library/MULTIMEDIA/{movies,Downloads/{complete,incomplete}}
+
+```
+
+## Configuration Steps After Deployment
+
+### Step 1: Access Web Interfaces
+
+- **Transmission:** `http://your-host:9091` (username: jmoreira)
+- **Prowlarr:** `http://your-host:9696`
+- **Radarr:** `http://your-host:7878`
+- **Bazarr:** `http://your-host:6767`
+
+### Step 2: Configure Prowlarr (Indexer Manager)
+
+1. **Add Indexers:** Settings → Indexers → Add Indexer
+   - Add public trackers: The Pirate Bay, 1337x, RARBG
+   - Or private trackers if you have accounts
+
+2. **Connect to Radarr:** Settings → Apps → Add Application
+   - **Type:** Radarr
+   - **Prowlarr Server:** `http://prowlarr:9696`
+   - **Radarr Server:** `http://radarr:7878`
+   - **API Key:** Copy from Radarr → Settings → General
+
+### Step 3: Configure Radarr (Movie Management)
+
+1. **Verify Download Client:** Settings → Download Clients
+   - Should show Transmission at `transmission:9091`
+
+2. **Set Media Management:** Settings → Media Management
+   - **Root Folder:** `/movies`
+   - **Movie Naming:** Enable and configure format
+
+3. **Check Indexers:** Settings → Indexers
+   - Should auto-populate from Prowlarr
+
+4. **Quality Profiles:** Settings → Profiles → Quality Profiles
+   - Configure preferred quality (1080p, 4K, etc.)
+
+### Step 4: Configure Bazarr (Subtitle Management)
+
+1. **Languages:** Settings → Languages
+   - Add Portuguese, English, or your preferred languages
+
+2. **Connect to Radarr:** Settings → Radarr
+   - **Address:** `http://radarr:7878`
+   - **API Key:** Same as used in Prowlarr
+   - **Base URL:** Leave empty
+   - **Test** connection
+
+3. **Subtitle Providers:** Settings → Providers
+   - Enable OpenSubtitles, Subscene, or other providers
+   - Some may require free registration
+
+4. **Path Mappings:** Settings → General
+   - Should auto-detect `/movies` path
+
+### Step 5: Test the Complete Workflow
+
+1. **Add a Movie in Radarr**
+   - Movies → Add New → Search for a movie
+   - Select quality profile → Add Movie
+
+2. **Monitor Progress**
+   - Radarr searches via Prowlarr indexers
+   - Downloads via Transmission
+   - Processes and moves to movies folder
+   - Bazarr detects new movie and downloads subtitles
+
+### Step 6: Automation Settings
+
+**Radarr Automation:**
+- Settings → General → Start-Up → Enable "Show advanced settings"
+- Configure automatic search schedules
+
+**Bazarr Automation:**
+- Settings → Scheduler → Configure subtitle search frequency
+- Settings → General → Enable "Automatic" subtitle download
+
+## Service URLs Summary
+
+- **Transmission:** `:9091` (Downloads)
+- **Prowlarr:** `:9696` (Indexer Management)
+- **Radarr:** `:7878` (Movie Management)
+- **Bazarr:** `:6767` (Subtitle Management)
+
+Post Install Configuration [OLD]
+--------------------------------
 
 - References:
 
 `Post Install Configuration <https://www.youtube.com/watch?v=R0Zn0bdPwcw>`__
+`Don’t run Proxmox without these settings! <https://www.youtube.com/watch?v=VAJWUZ3sTSI>`__
 
 1. In 'Datacenter' - 'Storage', remove 'local-lvm';
 2. In 'Node' - 'Shell', enter commands:
@@ -29,7 +259,7 @@ Post Install Configuration
 4. Configure Repositories:
 
 - In 'Node' - 'Updates' - 'Repositories', select repository ENTERPRISE and PVE-ENTERPRISE and select DISABLE;
-- In. 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
+- In 'Node' - 'Updates' - 'Repositories', add repository 'No-Subscription';
 - In 'Node' - 'Updates', click REFRESH and then UPGRADE;
 - In GUI select REBOOT.
 
@@ -50,7 +280,7 @@ Post Install Configuration
     
     systemctl restart pveproxy.service
 
-5. Change IP configuration:
+6. Change IP configuration:
 
 - Connect via SSH (putty):
 
@@ -60,6 +290,8 @@ Post Install Configuration
     joe interfaces
 
 - In editor, change from accordingly:
+
+Static IP Address
 
 ::
     
@@ -71,7 +303,7 @@ Post Install Configuration
         bridge-stp off
         bridge-fd 0
     
-Ou,
+Or, Dynamic IP Address (DHCP)
 
 ::
     
@@ -86,6 +318,19 @@ Ou,
 ::
     
     systemctl restart networking
+
+7. Enable Notifications:
+
+In 'Datacenter' - 'Notifications':
+
+- Add a new notification target, 'SMTP';
+- In notification handler modify 'default-matcher' in 'Targets to notify':
+  - Select previous added notification target;
+  - Unselect 'mail-to-root'.
+
+8. Trusted TLS Certificates:
+
+In 'Datacenter' - 'ACME':
 
 Storage Configuration
 ---------------------
@@ -110,12 +355,34 @@ Storage Configuration
     Directory: /zfsdata
     Content: ALL SELECTED
 
+Create VM's with Packer
+-----------------------
+
+- `Create VMs on Proxmox in Seconds! <https://www.youtube.com/watch?v=1nf3WOEFq1Y>`__
+
+
 pfSense
 -------
 
 - References:
 
 `Virtualizing An Internal Network With pfSense In ProxMox <https://www.youtube.com/watch?v=V6di1EAovN8>`__
+
+OpenWRT
+-------
+
+- References:
+
+`How to install OpenWRT on Proxmox <https://www.youtube.com/watch?v=8RoYUsNe4gE>`__
+`How to set up an OpenWRT VM in Proxmox <https://gist.github.com/subrezon/b9aa2014343f934fbf69e579ecfc8da8>`__
+`Must-Have OpenWrt Router Setup For Your Proxmox <https://www.youtube.com/watch?v=3mPbrunpjpk>`__
+
+Casa
+-------
+
+- References:
+
+`How to install OpenWRT on Proxmox <https://www.youtube.com/watch?v=8RoYUsNe4gE>`__
 
 Docker
 ------
