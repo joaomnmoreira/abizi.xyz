@@ -105,18 +105,67 @@ Hugging Face in 4 Hours
   - :download:`Slides Week #2 <../_files/huggingfacein4hours.pdf>`
 
 RAG
-==================
+===
 
 - `Generative AI use case: Retrieval Augmented Generation (RAG) <https://www.youtube.com/playlist?list=PL-pTHQz4RcBbz78Z5QXsZhe9rHuCs1Jw->`__
 - `Building Production-Ready RAG Applications: Jerry Liu <https://www.youtube.com/watch?v=TRjq7t2Ms5I>`__
 
 AutoGPT
--------
+=======
 
 AutoGTP Forge
 
 - `AutoGPT Forge Quickstart <https://github.com/Significant-Gravitas/AutoGPT/blob/master/QUICKSTART.md>`__
 - `AutoGPT Forge <https://aiedge.medium.com/autogpt-forge-e3de53cc58ec>`__
 - `AutoGPT Forge Research Assistant <https://lablab.ai/t/autogpt-tutorial-creating-a-research-assistant-with-auto-gpt-forge>`__
+
+Ollama
+======
+
+Install Ollama:
+
+::
+    curl -fsSL https://ollama.com/install.sh | sh
+
+Run llama3 8b:
+
+::
+    ollama run llama3:latest
+
+Perplexica
+==========
+
+- `Perplexica is an AI-powered search engine. It is an Open source alternative to Perplexity AI <https://github.com/ItzCrazyKns/Perplexica>`__
+
+Errors
+------
+
+- `Error Fix #1 <https://github.com/ItzCrazyKns/Perplexica/issues/175#issuecomment-2161094257>`__
+
+running
+-------
+
+::
+    ollama run llama3:latest
+
+Rebuilding
+
+::
+    docker compose down --rmi all
+    docker compose up -d --build
+
+Debug
+
+::
+    docker ps
+    docker logs -f perplexica-perplexica-frontend-1
+    docker logs -f perplexica-perplexica-backend-1
+    docker logs -f perplexica-searxng-1
+    docker exec -it perplexica-perplexica-frontend-1 /bin/bash
+    docker exec -it perplexica-perplexica-backend-1 /bin/bash
+    docker exec -it perplexica-searxng-1 /bin/bash
+
+
+
 
 https://www.gptsportswriter.com/
