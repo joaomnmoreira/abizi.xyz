@@ -73,7 +73,7 @@ jobs:
           documentation_path: docs/source
           requirements_path: ./requirements.txt
           python_version: '3.11'
-          cache: true
+          cache: false
 
 #      - name: Deploy documentation
 #        uses: peaceiris/actions-gh-pages@v3
