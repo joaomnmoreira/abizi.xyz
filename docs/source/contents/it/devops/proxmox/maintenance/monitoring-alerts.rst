@@ -1,13 +1,13 @@
-==================
+===================
 Monitoring & Alerts
-==================
+===================
 
 .. highlight:: console
 
 System monitoring, alerting, and performance tracking for Proxmox infrastructure.
 
 📊 Monitoring Overview
-=====================
+======================
 
 Comprehensive monitoring strategy:
 
@@ -18,10 +18,10 @@ Comprehensive monitoring strategy:
 - **Alert Management**: Proactive notifications for issues
 
 🔧 Built-in Proxmox Monitoring
-=============================
+==============================
 
 Proxmox Web Interface Monitoring
--------------------------------
+--------------------------------
 
 **System Status Dashboard**:
 - Node summary with resource usage
@@ -59,7 +59,7 @@ Command Line Monitoring
    df -h
 
 📈 Advanced Monitoring Stack
-===========================
+============================
 
 Prometheus + Grafana Setup
 --------------------------
@@ -229,10 +229,10 @@ PVE Exporter for Proxmox
    systemctl start pve-exporter
 
 🚨 Alert Configuration
-=====================
+======================
 
 Alertmanager Setup
------------------
+------------------
 
 .. code-block:: bash
 
@@ -273,7 +273,7 @@ Alertmanager Setup
          {{ end }}
 
 Alert Rules
-----------
+-----------
 
 .. code-block:: yaml
 
@@ -318,10 +318,10 @@ Alert Rules
          description: "{{ $labels.instance }} has been down for more than 2 minutes"
 
 📱 Notification Channels
-=======================
+========================
 
 Email Notifications
-------------------
+-------------------
 
 **Configure SMTP in Proxmox**:
 
@@ -341,7 +341,7 @@ Email Notifications
    echo "Test message" | mail -s "Proxmox Test" admin@yourdomain.com
 
 Slack Integration
-----------------
+-----------------
 
 .. code-block:: yaml
 
@@ -355,7 +355,7 @@ Slack Integration
        text: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
 
 Discord Integration
-------------------
+-------------------
 
 .. code-block:: bash
 
@@ -375,10 +375,10 @@ Discord Integration
    chmod +x /usr/local/bin/discord-alert.sh
 
 📊 Custom Monitoring Scripts
-===========================
+============================
 
 System Health Monitor
---------------------
+---------------------
 
 .. code-block:: bash
 
@@ -438,7 +438,7 @@ System Health Monitor
    chmod +x /usr/local/bin/system-health.sh
 
 Service Monitoring
------------------
+------------------
 
 .. code-block:: bash
 
@@ -492,10 +492,10 @@ Service Monitoring
    chmod +x /usr/local/bin/service-monitor.sh
 
 ⏰ Monitoring Schedule
-====================
+======================
 
 Cron Configuration
------------------
+------------------
 
 .. code-block:: bash
 
@@ -516,10 +516,10 @@ Cron Configuration
    0 8 * * * /usr/local/bin/backup-status.sh | mail -s "Daily Proxmox Status" admin@yourdomain.com
 
 📱 Dashboard Setup
-=================
+==================
 
 Grafana Dashboard Configuration
-------------------------------
+-------------------------------
 
 **Import Proxmox Dashboard**:
 
@@ -537,7 +537,7 @@ Grafana Dashboard Configuration
 - Alert summary
 
 Web-based Status Page
---------------------
+---------------------
 
 .. code-block:: bash
 
@@ -604,10 +604,10 @@ Monthly Monitoring Tasks:
 - [ ] **Test disaster recovery** monitoring
 
 🚨 Troubleshooting
-=================
+==================
 
 Common Monitoring Issues
------------------------
+------------------------
 
 **Prometheus Not Scraping**:
 
@@ -643,7 +643,7 @@ Common Monitoring Issues
    systemctl status alertmanager
 
 📚 Additional Resources
-======================
+=======================
 
 - `Prometheus Documentation <https://prometheus.io/docs/>`__
 - `Grafana Documentation <https://grafana.com/docs/>`__

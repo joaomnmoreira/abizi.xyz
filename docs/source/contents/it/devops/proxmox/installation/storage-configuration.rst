@@ -7,7 +7,7 @@ Storage Configuration
 Comprehensive storage setup for Proxmox VE including ZFS configuration and directory management.
 
 📋 Storage Overview
-==================
+===================
 
 Proxmox VE supports multiple storage types:
 
@@ -18,7 +18,7 @@ Proxmox VE supports multiple storage types:
 - **Cloud Storage**: Various cloud providers
 
 🔧 Initial Storage Reconfiguration
-=================================
+==================================
 
 Remove Local-LVM and Extend Root
 --------------------------------
@@ -38,7 +38,7 @@ By default, Proxmox creates a small root partition and large local-lvm. For sing
    df -h
 
 Update Storage Configuration
----------------------------
+----------------------------
 
 In Proxmox web interface:
 
@@ -53,7 +53,7 @@ In Proxmox web interface:
 ZFS provides advanced features like snapshots, compression, and data integrity checking.
 
 ZFS Pool Creation
-----------------
+-----------------
 
 Create ZFS storage pool:
 
@@ -70,7 +70,7 @@ Create ZFS storage pool:
    zfs set mountpoint=/zfsdata ZFS01/Data01
 
 ZFS Configuration Options
-------------------------
+-------------------------
 
 Optimize ZFS for your use case:
 
@@ -86,7 +86,7 @@ Optimize ZFS for your use case:
    # zfs set dedup=on ZFS01/Data01
 
 Add ZFS Storage to Proxmox
--------------------------
+--------------------------
 
 In Proxmox web interface:
 
@@ -98,7 +98,7 @@ In Proxmox web interface:
    - **Shared**: No (unless using shared storage)
 
 📁 Directory Structure Setup
-===========================
+============================
 
 Create organized directory structure for different services:
 
@@ -135,10 +135,10 @@ Set Proper Permissions
    chmod 750 /backup/
 
 🌐 Network Storage Configuration
-===============================
+================================
 
 NFS Storage Setup
-----------------
+-----------------
 
 For network-attached storage:
 
@@ -166,7 +166,7 @@ Add NFS to Proxmox:
    - **Content**: Select appropriate types
 
 iSCSI Storage Setup
-------------------
+-------------------
 
 For iSCSI targets:
 
@@ -182,7 +182,7 @@ For iSCSI targets:
    iscsiadm -m node --login
 
 📊 Storage Monitoring
-====================
+=====================
 
 Monitor storage usage and health:
 
@@ -201,7 +201,7 @@ Monitor storage usage and health:
    dmesg | grep -i error
 
 Storage Health Script
---------------------
+---------------------
 
 Create monitoring script:
 
@@ -233,7 +233,7 @@ Create monitoring script:
    chmod +x /usr/local/bin/storage-health.sh
 
 🔄 Backup Configuration
-======================
+=======================
 
 Automated Backup Setup
 ----------------------
@@ -273,7 +273,7 @@ Configure automated backups for critical data:
    chmod +x /usr/local/bin/storage-backup.sh
 
 Schedule Backups
----------------
+----------------
 
 Add to crontab:
 
@@ -286,10 +286,10 @@ Add to crontab:
    0 2 * * * /usr/local/bin/storage-backup.sh
 
 🚨 Troubleshooting
-=================
+==================
 
 Common Storage Issues
---------------------
+---------------------
 
 **ZFS Pool Import Issues**:
 
@@ -334,7 +334,7 @@ After storage configuration:
 - [ ] **Storage added** to Proxmox web interface
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Storage Guide <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_storage>`__
 - `ZFS Administration Guide <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_zfs>`__

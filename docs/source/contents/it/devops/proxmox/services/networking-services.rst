@@ -17,12 +17,12 @@ Essential networking services for Proxmox infrastructure:
 - **VPN Services**: WireGuard and OpenVPN setup
 
 🔥 pfSense Configuration
-=======================
+========================
 
 pfSense provides enterprise-grade firewall and routing capabilities.
 
 pfSense VM Setup
----------------
+----------------
 
 **References:**
 - `Virtualizing An Internal Network With pfSense In ProxMox <https://www.youtube.com/watch?v=V6di1EAovN8>`__
@@ -44,7 +44,7 @@ Network Interface Setup:
 3. **Optional DMZ**: Additional interface for DMZ network (vmbr2)
 
 pfSense Installation Steps
--------------------------
+--------------------------
 
 1. **Download pfSense ISO**:
    - Get latest version from `pfSense Downloads <https://www.pfsense.org/download/>`__
@@ -67,7 +67,7 @@ pfSense Installation Steps
    - Password: ``pfsense``
 
 pfSense Configuration
---------------------
+---------------------
 
 Essential configuration steps:
 
@@ -86,7 +86,7 @@ Essential configuration steps:
 2. Set IP range, DNS servers, gateway
 
 📡 OpenWRT Configuration
-=======================
+========================
 
 OpenWRT provides lightweight routing and wireless capabilities.
 
@@ -109,7 +109,7 @@ VM Requirements:
    Network: 2+ interfaces
 
 OpenWRT Installation
--------------------
+--------------------
 
 1. **Download OpenWRT Image**:
    - Get x86_64 image from `OpenWRT Downloads <https://downloads.openwrt.org/>`__
@@ -127,7 +127,7 @@ OpenWRT Installation
    - Boot and configure via console
 
 OpenWRT Configuration
---------------------
+---------------------
 
 Initial setup via console:
 
@@ -153,12 +153,12 @@ Web Interface Configuration:
 4. **System** → **Administration**: Set passwords and SSH keys
 
 🌐 Network Bridge Configuration
-==============================
+===============================
 
 Configure Proxmox network bridges for different network segments.
 
 Bridge Setup
------------
+------------
 
 Create additional bridges for network segmentation:
 
@@ -212,7 +212,7 @@ Apply network changes:
    brctl show
 
 VLAN Configuration
------------------
+------------------
 
 Configure VLANs for network segmentation:
 
@@ -237,12 +237,12 @@ Configure VLANs for network segmentation:
        address 192.168.20.1/24
 
 🔐 VPN Services
-==============
+===============
 
 Configure VPN services for remote access.
 
 WireGuard Setup
---------------
+---------------
 
 Install and configure WireGuard:
 
@@ -285,12 +285,12 @@ Enable WireGuard:
    wg show
 
 📊 Network Monitoring
-====================
+=====================
 
 Monitor network performance and connectivity.
 
 Network Monitoring Tools
------------------------
+------------------------
 
 .. code-block:: bash
 
@@ -307,7 +307,7 @@ Network Monitoring Tools
    nload vmbr0
 
 Network Health Script
---------------------
+---------------------
 
 Create network monitoring script:
 
@@ -343,12 +343,12 @@ Create network monitoring script:
    chmod +x /usr/local/bin/network-health.sh
 
 🚨 Troubleshooting
-=================
+==================
 
 Common networking issues and solutions.
 
 Bridge Issues
-------------
+-------------
 
 .. code-block:: bash
 
@@ -362,7 +362,7 @@ Bridge Issues
    ip link show
 
 VM Network Issues
-----------------
+-----------------
 
 .. code-block:: bash
 
@@ -373,7 +373,7 @@ VM Network Issues
    qm reboot <vmid>
 
 Firewall Issues
---------------
+---------------
 
 .. code-block:: bash
 
@@ -398,7 +398,7 @@ After network configuration:
 - [ ] **Connectivity tested** between segments
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Network Configuration <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysadmin_network_configuration>`__
 - `pfSense Documentation <https://docs.netgate.com/pfsense/en/latest/>`__

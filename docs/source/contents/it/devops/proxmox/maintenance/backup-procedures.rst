@@ -46,7 +46,7 @@ Automated VM/Container Backups
    Mode: snapshot
 
 Manual Backup Commands
----------------------
+----------------------
 
 .. code-block:: bash
 
@@ -163,7 +163,7 @@ Automated configuration backup for critical files:
 ============================
 
 ZFS Snapshot Management
-----------------------
+-----------------------
 
 .. code-block:: bash
 
@@ -199,7 +199,7 @@ ZFS Snapshot Management
    chmod +x /usr/local/bin/zfs-snapshot.sh
 
 Database Backup (if applicable)
-------------------------------
+-------------------------------
 
 .. code-block:: bash
 
@@ -228,7 +228,7 @@ Database Backup (if applicable)
 ===============================
 
 Rsync to Remote Server
----------------------
+----------------------
 
 .. code-block:: bash
 
@@ -306,10 +306,10 @@ Cloud Storage Backup
    chmod +x /usr/local/bin/cloud-backup.sh
 
 ⏰ Backup Scheduling
-===================
+====================
 
 Cron Configuration
------------------
+------------------
 
 .. code-block:: bash
 
@@ -334,7 +334,7 @@ Cron Configuration
    0 6 * * 0 /usr/local/bin/cloud-backup.sh
 
 Systemd Timer Alternative
-------------------------
+-------------------------
 
 .. code-block:: bash
 
@@ -369,10 +369,10 @@ Systemd Timer Alternative
    systemctl start proxmox-backup.timer
 
 🔄 Recovery Procedures
-=====================
+======================
 
 VM/Container Recovery
---------------------
+---------------------
 
 .. code-block:: bash
 
@@ -389,7 +389,7 @@ VM/Container Recovery
    qmrestore /backup/vzdump-qemu-100-2024_12_01-02_00_00.vma.zst 101
 
 Configuration Recovery
----------------------
+----------------------
 
 .. code-block:: bash
 
@@ -406,7 +406,7 @@ Configuration Recovery
    systemctl restart networking
 
 ZFS Recovery
------------
+------------
 
 .. code-block:: bash
 
@@ -474,7 +474,7 @@ Backup Verification Script
    chmod +x /usr/local/bin/backup-verify.sh
 
 Backup Status Dashboard
-----------------------
+-----------------------
 
 .. code-block:: bash
 
@@ -534,10 +534,10 @@ Monthly Backup Tasks:
 - [ ] **Audit backup security** and access controls
 
 🚨 Troubleshooting
-=================
+==================
 
 Common Backup Issues
--------------------
+--------------------
 
 **Backup Job Fails**:
 
@@ -577,7 +577,7 @@ Common Backup Issues
    qmrestore --help
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Backup and Restore <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_vzdump>`__
 - `ZFS Snapshots and Backup <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_zfs>`__

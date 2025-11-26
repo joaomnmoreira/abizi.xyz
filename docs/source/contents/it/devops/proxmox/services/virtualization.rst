@@ -77,7 +77,7 @@ Enable in Proxmox:
 2. **Shutdown and restart** the VM
 
 Windows VM Configuration
------------------------
+------------------------
 
 **VirtIO Drivers Installation**:
 
@@ -98,10 +98,10 @@ Reference: `Passing a Physical Drive through to a VM in ProxMox <https://www.you
    /sbin/qm set [VM-ID] -virtio2 /dev/disk/by-id/[DISK-ID]
 
 📦 LXC Container Management
-==========================
+===========================
 
 Container Creation
------------------
+------------------
 
 **Create LXC Container**:
 
@@ -131,7 +131,7 @@ Container Creation
    passwd
 
 Container Optimization
----------------------
+----------------------
 
 **Privileged vs Unprivileged**:
 - **Privileged**: Full root access, better compatibility
@@ -192,7 +192,7 @@ Docker LXC Setup
    apt install cifs-utils docker-compose
 
 Docker Service Configuration
----------------------------
+----------------------------
 
 **Create Docker service user**:
 
@@ -226,7 +226,7 @@ Docker Service Configuration
 ==============================
 
 VM Template Creation
--------------------
+--------------------
 
 **Create Packer Templates**:
 
@@ -250,7 +250,7 @@ Reference: `Create VMs on Proxmox in Seconds! <https://www.youtube.com/watch?v=1
    qm start 100
 
 Cloud-Init Configuration
------------------------
+------------------------
 
 **Enable Cloud-Init**:
 
@@ -298,7 +298,7 @@ VM Performance Monitoring
    qm set 100 --args '-cpu host,+aes'
 
 Container Monitoring
--------------------
+--------------------
 
 .. code-block:: bash
 
@@ -312,10 +312,10 @@ Container Monitoring
    pct list
 
 🔄 Backup and Migration
-======================
+=======================
 
 VM Backup Configuration
-----------------------
+-----------------------
 
 **Automated Backups**:
 
@@ -338,7 +338,7 @@ VM Backup Configuration
    vzdump 200 --storage local --compress lzo
 
 VM Migration
------------
+------------
 
 **Live Migration**:
 
@@ -351,10 +351,10 @@ VM Migration
    qm migrate 100 node2 --targetstorage local-lvm
 
 🚨 Troubleshooting
-=================
+==================
 
 Common VM Issues
----------------
+----------------
 
 **VM Won't Start**:
 
@@ -382,7 +382,7 @@ Common VM Issues
    info blockstats
 
 Container Issues
----------------
+----------------
 
 **Container Won't Start**:
 
@@ -413,7 +413,7 @@ After virtualization setup:
 - [ ] **Network connectivity** verified
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Virtual Machine Management <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_virtual_machines>`__
 - `LXC Container Management <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_pct>`__

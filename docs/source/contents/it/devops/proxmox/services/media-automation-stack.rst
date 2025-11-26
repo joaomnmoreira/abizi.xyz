@@ -18,7 +18,7 @@ Before deploying this stack, ensure Docker is properly configured in your Proxmo
 This script will install Docker, Docker Compose, and Portainer for container management.
 
 📋 Stack Overview
-================
+=================
 
 The media automation stack consists of:
 
@@ -30,7 +30,7 @@ The media automation stack consists of:
 - **Jellyfin**: Media server (optional)
 
 📚 Service References
-====================
+=====================
 
 **Radarr (Movie Management)**:
 - `Docker Hub - LinuxServer Radarr <https://hub.docker.com/r/linuxserver/radarr>`__
@@ -47,7 +47,7 @@ The media automation stack consists of:
 - `Bazarr Setup Guide - Official Wiki <https://wiki.bazarr.media/Getting-Started/Setup-Guide/>`__
 
 🚀 Quick Deployment
-==================
+===================
 
 **Option 1: Via Portainer (Recommended)**
 
@@ -89,7 +89,7 @@ The media automation stack consists of:
 - Bazarr: ``http://proxmox-ip:6767``
 
 📁 Directory Structure
-=====================
+======================
 
 Required directories on Proxmox host:
 
@@ -115,7 +115,7 @@ Required directories on Proxmox host:
    chown -R 1002:1002 /mnt/nas-library/MULTIMEDIA/
 
 ⚙️ Configuration Steps
-=====================
+======================
 
 Step 1: Configure Prowlarr
 --------------------------
@@ -151,7 +151,7 @@ Step 3: Configure Bazarr
    - Enable OpenSubtitles, Subscene
 
 🔄 Workflow Process
-==================
+===================
 
 1. **Add Movie** → Radarr web interface
 2. **Search** → Prowlarr provides indexer sources
@@ -161,18 +161,17 @@ Step 3: Configure Bazarr
 6. **Ready** → Media available for consumption
 
 🔧 Maintenance Tasks
-===================
+====================
 
 Regular Maintenance
-------------------
+-------------------
 
 - **Weekly**: Check download queue and failed downloads
 - **Monthly**: Update indexer configurations
 - **Quarterly**: Review quality profiles and storage usage
 
 Troubleshooting
---------------
-
+---------------
 - **Check logs**: ``docker-compose logs [service-name]``
 - **Restart services**: ``docker-compose restart [service-name]``
 - **Update containers**: ``docker-compose pull && docker-compose up -d``

@@ -48,22 +48,20 @@ Your full automated media pipeline:
 
 Create all required directories:
 
-```bash
+.. code-block:: bash
 
-# Local Docker configuration directories (on container filesystem)
-adduser arr-stack --uid 1002 --disabled-password
-sudo mkdir -p /docker/{transmission/{data,watch},prowlarr/config,radarr/config,bazarr/config}
+   # Local Docker configuration directories (on container filesystem)
+   adduser arr-stack --uid 1002 --disabled-password
+   sudo mkdir -p /docker/{transmission/{data,watch},prowlarr/config,radarr/config,bazarr/config}
 
-# Local Docker configuration directories (on container filesystem from host PROXMOX)
-pct mount 23001
-mounted CT 23001 in '/var/lib/lxc/23001/rootfs'
-chown -R 1002:1002 /var/lib/lxc/23001/rootfs/docker/
-pct unmount 23001
+   # Local Docker configuration directories (on container filesystem from host PROXMOX)
+   pct mount 23001
+   mounted CT 23001 in '/var/lib/lxc/23001/rootfs'
+   chown -R 1002:1002 /var/lib/lxc/23001/rootfs/docker/
+   pct unmount 23001
 
-# Media directories (on NAS via iSCSI mount)
-mkdir -p /mnt/nas-library/MULTIMEDIA/{movies,Downloads/{complete,incomplete}}
-
-```
+   # Media directories (on NAS via iSCSI mount)
+   mkdir -p /mnt/nas-library/MULTIMEDIA/{movies,Downloads/{complete,incomplete}}
 
 ## Configuration Steps After Deployment
 

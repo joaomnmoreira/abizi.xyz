@@ -37,7 +37,7 @@ Here are some of the development tools you might find useful:
     - `Bash <https://www.gnu.org/software/bash/>`_: Unix shell scripting language.
 
 - **Additional Tools:**
-https://dashboard.ngrok.com/cloud-edge/domains
+    - `Ngrok Dashboard <https://dashboard.ngrok.com/cloud-edge/domains>`_
     - `Ngrok <https://ngrok.com>`_: Expose local web servers to the internet.
         - Free use with a custom ngrok subdomain
         - `Ngrok Usage <ngrok.html>`_

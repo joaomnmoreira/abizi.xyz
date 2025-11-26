@@ -60,7 +60,7 @@ Boot and Startup Problems
    systemctl restart pveproxy
 
 Network Connectivity Issues
---------------------------
+---------------------------
 
 **No Network Access**:
 
@@ -114,7 +114,7 @@ Network Connectivity Issues
 =================
 
 ZFS Problems
------------
+------------
 
 **Pool Import Failures**:
 
@@ -214,7 +214,7 @@ Disk and Filesystem Issues
 ========================
 
 VM Problems
-----------
+-----------
 
 **VM Won't Start**:
 
@@ -265,7 +265,7 @@ VM Problems
    qm guest exec 100 -- ping -c 3 8.8.8.8
 
 Container Problems
------------------
+------------------
 
 **Container Won't Start**:
 
@@ -311,7 +311,7 @@ Container Problems
    aa-complain /usr/bin/lxc-start
 
 🐳 Docker Issues
-===============
+================
 
 Docker Service Problems
 -----------------------
@@ -366,7 +366,7 @@ Docker Service Problems
    docker-compose up -d --force-recreate
 
 Storage and Volume Issues
-------------------------
+-------------------------
 
 .. code-block:: bash
 
@@ -384,7 +384,7 @@ Storage and Volume Issues
    chown -R 1002:1002 /docker/service-name/
 
 🌐 Web Interface Issues
-======================
+=======================
 
 Proxmox Web GUI Problems
 ------------------------
@@ -434,7 +434,7 @@ Proxmox Web GUI Problems
    systemctl restart pveproxy pvedaemon
 
 🔍 Diagnostic Tools
-==================
+===================
 
 System Diagnostics
 ------------------
@@ -596,10 +596,10 @@ Performance Diagnostics
    chmod +x /usr/local/bin/performance-diagnostics.sh
 
 📋 Emergency Procedures
-======================
+=======================
 
 System Recovery
---------------
+---------------
 
 **Boot from Rescue Mode**:
 
@@ -637,10 +637,10 @@ System Recovery
    tar -xzf /mnt/backup/pve-config.tar.gz -C /
 
 🚨 Critical Issue Response
-=========================
+==========================
 
 Service Outage Response
-----------------------
+-----------------------
 
 1. **Immediate Assessment**:
    - Check system status: `systemctl status`
@@ -658,7 +658,7 @@ Service Outage Response
    - Document incident for post-mortem
 
 Data Loss Prevention
--------------------
+--------------------
 
 .. code-block:: bash
 
@@ -675,10 +675,10 @@ Data Loss Prevention
    rsync -av /etc/pve/ /mnt/backup/emergency-pve-config/
 
 📞 Support Resources
-===================
+====================
 
 Getting Help
------------
+------------
 
 **Proxmox Community**:
 - Forum: https://forum.proxmox.com/
@@ -703,7 +703,7 @@ Getting Help
 - Enterprise Support: Available with subscription
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Troubleshooting Guide <https://pve.proxmox.com/wiki/Troubleshooting>`__
 - `System Recovery Procedures <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_system_administration>`__

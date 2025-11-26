@@ -7,7 +7,7 @@ Baremetal Setup
 Hardware installation and initial Proxmox VE setup procedures.
 
 📋 Hardware Requirements
-=======================
+========================
 
 Recommended specifications for Proxmox VE:
 
@@ -17,10 +17,10 @@ Recommended specifications for Proxmox VE:
 - **Network**: Gigabit Ethernet, multiple NICs recommended
 
 🔧 Installation Process
-======================
+=======================
 
 Baremetal Installation Guide
----------------------------
+----------------------------
 
 Follow this comprehensive video guide for hardware setup:
 
@@ -49,7 +49,7 @@ Key Installation Steps:
    - Ensure network connectivity for web interface
 
 📊 Post-Installation Verification
-================================
+=================================
 
 After installation, verify the setup:
 
@@ -68,7 +68,7 @@ After installation, verify the setup:
    curl -k https://localhost:8006
 
 🌐 Web Interface Access
-======================
+=======================
 
 Access the Proxmox web interface:
 
@@ -78,10 +78,10 @@ Access the Proxmox web interface:
 - **Realm**: ``Linux PAM standard authentication``
 
 🔧 Hardware Optimization
-=======================
+========================
 
 BIOS/UEFI Settings
------------------
+------------------
 
 Essential BIOS settings for optimal performance:
 
@@ -91,7 +91,7 @@ Essential BIOS settings for optimal performance:
 - **Boot Mode**: UEFI recommended over Legacy BIOS
 
 Network Interface Configuration
-------------------------------
+-------------------------------
 
 For multiple network interfaces:
 
@@ -100,7 +100,7 @@ For multiple network interfaces:
 - **Storage**: Optional dedicated network for storage traffic (iSCSI, NFS)
 
 📝 Installation Notes
-====================
+=====================
 
 Important considerations during installation:
 
@@ -130,7 +130,7 @@ After successful baremetal installation:
 4. **Service Deployment**: Deploy services using :doc:`../services/media-automation-stack`
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Administration Guide <https://pve.proxmox.com/pve-docs/>`__
 - `Proxmox VE Installation Guide <https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_installation>`__

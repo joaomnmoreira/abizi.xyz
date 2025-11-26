@@ -7,7 +7,7 @@ Update Procedures
 System update procedures for Proxmox VE, containers, and services.
 
 📋 Update Strategy Overview
-==========================
+===========================
 
 Systematic approach to updates:
 
@@ -21,7 +21,7 @@ Systematic approach to updates:
 =======================
 
 Pre-Update Preparation
----------------------
+----------------------
 
 .. code-block:: bash
 
@@ -41,7 +41,7 @@ Pre-Update Preparation
    ps aux | grep vzdump
 
 Repository Configuration
------------------------
+------------------------
 
 .. code-block:: bash
 
@@ -53,7 +53,7 @@ Repository Configuration
    apt update
 
 Standard Update Process
-----------------------
+-----------------------
 
 .. code-block:: bash
 
@@ -71,7 +71,7 @@ Standard Update Process
    apt autoclean
 
 Kernel Updates
--------------
+--------------
 
 .. code-block:: bash
 
@@ -91,7 +91,7 @@ Kernel Updates
    reboot
 
 Post-Update Verification
------------------------
+------------------------
 
 .. code-block:: bash
 
@@ -180,7 +180,7 @@ Linux VM Updates
    chmod +x /usr/local/bin/update-vms.sh
 
 LXC Container Updates
---------------------
+---------------------
 
 .. code-block:: bash
 
@@ -225,7 +225,7 @@ LXC Container Updates
    chmod +x /usr/local/bin/update-containers.sh
 
 🐳 Docker Service Updates
-========================
+=========================
 
 Docker Container Updates
 ------------------------
@@ -296,7 +296,7 @@ Docker Container Updates
    chmod +x /usr/local/bin/update-docker-services.sh
 
 Docker Engine Updates
---------------------
+---------------------
 
 .. code-block:: bash
 
@@ -311,7 +311,7 @@ Docker Engine Updates
    pct exec 300 -- docker version
 
 🔒 Security Updates
-==================
+===================
 
 Critical Security Patches
 -------------------------
@@ -352,7 +352,7 @@ Critical Security Patches
    EOF
 
 Vulnerability Scanning
----------------------
+----------------------
 
 .. code-block:: bash
 
@@ -367,10 +367,10 @@ Vulnerability Scanning
    debsecan --suite $(lsb_release -cs) --format packages
 
 ⏰ Update Scheduling
-===================
+====================
 
 Maintenance Windows
-------------------
+-------------------
 
 **Scheduled Maintenance Script**:
 
@@ -422,7 +422,7 @@ Maintenance Windows
    chmod +x /usr/local/bin/maintenance-window.sh
 
 Cron Scheduling
---------------
+---------------
 
 .. code-block:: bash
 
@@ -440,7 +440,7 @@ Cron Scheduling
    0 4 * * 0 /usr/local/bin/update-docker-services.sh
 
 🔄 Rollback Procedures
-=====================
+======================
 
 System Rollback
 ---------------
@@ -474,7 +474,7 @@ System Rollback
    apt-mark unhold package-name
 
 VM/Container Rollback
---------------------
+---------------------
 
 .. code-block:: bash
 
@@ -499,7 +499,7 @@ Docker Service Rollback
    docker-compose up -d
 
 📊 Update Monitoring
-===================
+====================
 
 Update Status Tracking
 ----------------------
@@ -543,7 +543,7 @@ Update Status Tracking
    chmod +x /usr/local/bin/update-status.sh
 
 Update Notifications
--------------------
+--------------------
 
 .. code-block:: bash
 
@@ -607,10 +607,10 @@ Post-Update Checklist:
 - [ ] **Update log** documented
 
 🚨 Troubleshooting
-=================
+==================
 
 Common Update Issues
--------------------
+--------------------
 
 **Package Conflicts**:
 
@@ -663,7 +663,7 @@ Common Update Issues
    apt install pve-kernel-working-version
 
 📚 Additional Resources
-======================
+=======================
 
 - `Proxmox VE Updates <https://pve.proxmox.com/wiki/Package_Repositories>`__
 - `Debian Security Updates <https://www.debian.org/security/>`__

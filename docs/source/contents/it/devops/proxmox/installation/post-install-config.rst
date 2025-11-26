@@ -1,6 +1,6 @@
-========================
+==========================
 Post-Install Configuration
-========================
+==========================
 
 .. highlight:: console
 
@@ -49,7 +49,7 @@ The complete automated setup script:
 If you prefer manual configuration, follow these steps:
 
 1. Storage Reconfiguration
--------------------------
+--------------------------
 
 Remove local-lvm and extend root partition:
 
@@ -63,7 +63,7 @@ Remove local-lvm and extend root partition:
    resize2fs /dev/mapper/pve-root
 
 2. Repository Configuration
---------------------------
+---------------------------
 
 Disable enterprise repositories and add no-subscription:
 
@@ -95,7 +95,7 @@ Remove the subscription nag screen:
    systemctl restart pveproxy.service
 
 4. Network Configuration
------------------------
+------------------------
 
 Configure network interfaces (example for static IP):
 
@@ -126,7 +126,7 @@ Restart networking:
    systemctl restart networking
 
 5. Install Essential Packages
-----------------------------
+-----------------------------
 
 .. code-block:: bash
 
@@ -145,7 +145,7 @@ After running the configuration:
 - [ ] **Deploy services**: Use Docker Compose stacks from ``configs/``
 
 🔧 Configuration Files
-=====================
+======================
 
 All configuration scripts and templates are available in:
 
@@ -154,7 +154,7 @@ All configuration scripts and templates are available in:
 - **Backup script**: Created at ``/usr/local/bin/proxmox-backup.sh``
 
 📊 Verification Commands
-=======================
+========================
 
 Verify your configuration:
 
@@ -224,7 +224,7 @@ Configure Let's Encrypt certificates for secure web access:
    # 5. Enable automatic renewal
 
 🚨 Troubleshooting
-=================
+==================
 
 Common issues and solutions:
 
