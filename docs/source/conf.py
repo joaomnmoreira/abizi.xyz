@@ -51,7 +51,7 @@ exclude_patterns = [
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'furo'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -65,19 +65,13 @@ html_last_updated_fmt = '%b %d, %Y'
 
 html_css_files = ['custom.css']
 
-# https://alabaster.readthedocs.io/en/latest/installation.html#sidebars
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'relations.html',
-        'searchbox.html',
-        'donate.html',
-    ]
-}
-
-# Alabaster basics
+# Furo theme options
+# https://pradyunsg.me/furo/customisation/
 html_theme_options = {
-    'fixed_sidebar': True
+    "sidebar_hide_name": False,
+    "navigation_with_keys": True,
+    # Uncomment for dark mode by default:
+    # "light_css_variables": {},
+    # "dark_css_variables": {},
 }
 

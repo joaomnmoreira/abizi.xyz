@@ -4,86 +4,53 @@ Proxmox Infrastructure
 
 .. highlight:: console
 
-This section documents the complete Proxmox infrastructure setup, configuration, and maintenance procedures.
-
-📋 Quick Navigation
-===================
-
-Installation & Setup
---------------------
+Complete Proxmox infrastructure documentation covering setup, services, and maintenance.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: Installation & Setup
 
    installation/baremetal-setup
    installation/post-install-config
    installation/storage-configuration
 
-Services & Applications
------------------------
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: Services
 
    services/media-automation-stack
    services/networking-services
    services/virtualization
 
-Maintenance & Operations
-------------------------
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: Maintenance
 
    maintenance/backup-procedures
    maintenance/monitoring-alerts
    maintenance/update-procedures
    maintenance/troubleshooting
 
-🔧 Configuration Files
-======================
+Infrastructure Overview
+=======================
 
-All configuration files, scripts, and templates are organized in the ``configs/`` directory:
-
-- **Docker Compose Stacks**: ``configs/docker-compose/``
-- **Setup Scripts**: ``configs/scripts/``
-- **Configuration Templates**: ``configs/templates/``
-- **Automation Playbooks**: ``configs/ansible/``
-
-📊 Infrastructure Overview
-==========================
-
-Current Proxmox Setup
----------------------
+**Current Setup**
 
 - **Host**: Proxmox VE 8.x
 - **Storage**: ZFS configuration
 - **Networking**: Bridge configuration with VLANs
-- **Services**: Media automation, monitoring, networking
 
-Key Services
-------------
+**Key Services**
 
 - **Media Automation**: Radarr, Sonarr, Transmission, Prowlarr, Bazarr
 - **Monitoring**: Prometheus, Grafana, Alertmanager
 - **Networking**: pfSense, OpenWRT
-- **Backup**: Automated backup solutions
 
-🚀 Quick Start
-==============
+Quick Start
+===========
 
-1. **Initial Setup**: Follow :doc:`installation/baremetal-setup`
-2. **Post-Install**: Run :doc:`installation/post-install-config`
-3. **Deploy Services**: Use configurations in ``configs/docker-compose/``
-4. **Setup Monitoring**: Configure :doc:`maintenance/monitoring-alerts`
-5. **Backup Setup**: Implement :doc:`maintenance/backup-procedures`
-
-📝 Build Notes
-==============
-
-This documentation follows Infrastructure as Code principles:
-
-- All configurations are version controlled
-- Scripts ensure reproducible setups
-- Documentation is procedure-driven
-- Templates provide consistency
+1. Follow :doc:`installation/baremetal-setup`
+2. Run :doc:`installation/post-install-config`
+3. Configure :doc:`installation/storage-configuration`
+4. Deploy services from :doc:`services/media-automation-stack`
+5. Setup :doc:`maintenance/backup-procedures`
